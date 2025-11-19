@@ -1,0 +1,89 @@
+{
+    "common": {
+        "appName": "Möjligheternas Plats",
+        "appDescription": "Konstruerar robusta datapipelines och skalbara system för framtiden.",
+        "readMore": "Läs mer"
+    },
+    "nav": {
+        "home": "Hem",
+        "about": "Om oss",
+        "activities": "Verksamhet",
+        "leadership": "Ledarskapsutbildning",
+        "dreamAcademy": "Dreamacademy",
+        "summerCamp": "Summercamp",
+        "autumnCamp": "Höstcamp",
+        "eveningOpen": "Kvällsöppet",
+        "euCollaborations": "EU-samarbeten",
+        "futureNarrative": "Future Narrative",
+        "news": "Nyheter",
+        "events": "Evenemang",
+        "projects": "Projekt",
+        "partners": "Partners",
+        "media": "Media",
+        "contact": "Kontakt",
+        "engage": "Engagera dig"
+    },
+    "partners": {
+        "title": "Våra samarbetspartners",
+        "description": "Vi är stolta över att samarbeta med ledande organisationer och institutioner från hela världen."
+    },
+    "footer": {
+        "explore": "Utforska",
+        "allRightsReserved": "Alla rättigheter förbehållna",
+        "privacyPolicy": "Integritetspolicy",
+        "termsOfService": "Användarvillkor"
+    },
+    "home": {
+        "hero": {
+            "subtitle": "Konstruerar robusta datapipelines och skalbara system för framtiden. Utforska våra projekt, forskning och aktiviteter.",
+            "exploreProjects": "Utforska Projekt",
+            "contactUs": "Kontakta Oss"
+        },
+        "testimonialcard": {
+            "title": {
+                "part1": "Vad våra ",
+                "part2": "ungdomar ",
+                "part3": "säger"
+            },
+            "description": "Hör vad deltagarna säger om våra program."
+        },
+        "vision": {
+            "title": {
+                "part1": "Vår",
+                "part2": "Vision"
+            },
+            "subtitle": "Vi tror på varje ungs potential och arbetar för att skapa möjligheter där alla kan hitta sin väg i livet.",
+            "card1": {
+                "title": "Trygghet",
+                "description": "Vi skapar trygga miljöer där unga kan vara sig själva och våga växa."
+            },
+            "card2": {
+                "title": "Gemenskap",
+                "description": "Tillsammans är vi starkare. Vi bygger nätverk och varaktiga relationer."
+            },
+            "card3": {
+                "title": "Utveckling",
+                "description": "Vi ger verktyg och stöd för personlig utveckling och framtidstro."
+            }
+        },
+        "latestNews": {
+            "title": "Senaste Nyheter",
+            "subtitle": "Håll dig uppdaterad med våra senaste tillkännagivanden och berättelser.",
+            "viewAll": "Se Alla Nyheter"
+        },
+        "media": {
+            "title": "Mediagalleri",
+            "viewAll": "Se hela galleriet"
+        },
+        "events": {
+            "title": "Kommande Evenemang",
+            "subtitle": "Gå med i våra kommande workshops, seminarier och läger.",
+            "viewAll": "Se Alla Evenemang"
+        },
+        "cta": {
+            "title": "Engagera Dig",
+            "subtitle": "Oavsett om du är student, forskare eller potentiell partner finns det många sätt att engagera sig i vårt arbete.",
+            "button": "Lär Dig Hur"
+        }
+    }
+}

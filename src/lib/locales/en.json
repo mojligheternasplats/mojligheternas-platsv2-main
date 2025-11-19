@@ -1,0 +1,89 @@
+{
+    "common": {
+        "appName": "The Place of Possibilities",
+        "appDescription": "Engineering robust data pipelines and scalable systems for the future.",
+        "readMore": "Read More"
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About Us",
+        "activities": "Activities",
+        "leadership": "Leadership Training",
+        "dreamAcademy": "Dream Academy",
+        "summerCamp": "Summer Camp",
+        "autumnCamp": "Autumn Camp",
+        "eveningOpen": "Evening Open",
+        "euCollaborations": "EU Collaborations",
+        "futureNarrative": "Future Narrative",
+        "news": "News",
+        "events": "Events",
+        "projects": "Projects",
+        "partners": "Partners",
+        "media": "Media",
+        "contact": "Contact",
+        "engage": "Engage"
+    },
+    "partners": {
+        "title": "Our Partners",
+        "description": "We are proud to collaborate with leading organizations and institutions from around the world."
+    },
+    "footer": {
+        "explore": "Explore",
+        "allRightsReserved": "All rights reserved",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service"
+    },
+    "home": {
+        "hero": {
+            "subtitle": "Engineering robust data pipelines and scalable systems for the future. Explore our projects, research, and activities.",
+            "exploreProjects": "Explore Projects",
+            "contactUs": "Contact Us"
+        },
+        "testimonialcard": {
+            "title": {
+                "part1": "What our ",
+                "part2": "youth ",
+                "part3": "say"
+            },
+            "description": "Hear what participants are saying about our programs."
+        },
+        "vision": {
+            "title": {
+                "part1": "Our",
+                "part2": "Vision"
+            },
+            "subtitle": "We believe in the potential of every young person and work to create opportunities where everyone can find their path in life.",
+            "card1": {
+                "title": "Safety",
+                "description": "We create safe environments where young people can be themselves and dare to grow."
+            },
+            "card2": {
+                "title": "Community",
+                "description": "Together we are stronger. We build networks and lasting relationships."
+            },
+            "card3": {
+                "title": "Development",
+                "description": "We provide tools and support for personal development and faith in the future."
+            }
+        },
+        "latestNews": {
+            "title": "Latest News",
+            "subtitle": "Stay updated with our latest announcements and stories.",
+            "viewAll": "View All News"
+        },
+        "media": {
+            "title": "Media Gallery",
+            "viewAll": "View full gallery"
+        },
+        "events": {
+            "title": "Upcoming Events",
+            "subtitle": "Join us for our upcoming workshops, seminars, and camps.",
+            "viewAll": "View All Events"
+        },
+        "cta": {
+            "title": "Get Involved",
+            "subtitle": "Whether you're a student, researcher, or potential partner, there are many ways to engage with our work.",
+            "button": "Learn How"
+        }
+    }
+}

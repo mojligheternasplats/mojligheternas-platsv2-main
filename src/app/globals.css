@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+:root {
+  /* Radius */
+  --radius: 0.75rem;
+
+  /* Background & Text */
+  --background: #F7FAFC;
+  --foreground: #0A1A19;
+
+  /* Surfaces */
+  --card: #FFFFFF;
+  --card-foreground: #0A1A19;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #0A1A19;
+
+  /* Primary Brand (Deep Teal) */
+  --primary: #0A6E79;
+  --primary-foreground: #FFFFFF;
+
+  /* Secondary (Soft MP Section BG) */
+  --secondary: #E9F1F6;
+  --secondary-foreground: #0A1A19;
+
+  /* Muted */
+  --muted: #AAC4CF;
+  --muted-foreground: #4B5C63;
+
+  /* Accent (MP Yellow CTA) */
+  --accent: #F9D65C;
+  --accent-foreground: #0A1A19;
+
+  /* Destructive */
+  --destructive: #D32F2F;
+  --destructive-foreground: #FFFFFF;
+
+  /* Borders & Inputs */
+  --border: #D7E4EA;
+  --input: #D7E4EA;
+  --ring: #0A6E79;
+
+  /* Charts */
+  --chart-1: #0A6E79;
+  --chart-2: #1F8A96;
+  --chart-3: #8BD4D9;
+  --chart-4: #F9D65C;
+  --chart-5: #AAC4CF;
+
+  /* Sidebar System */
+  --sidebar-background: #FFFFFF;
+  --sidebar-foreground: #0A1A19;
+  --sidebar-primary: #0A6E79;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F9D65C;
+  --sidebar-accent-foreground: #0A1A19;
+  --sidebar-border: #D7E4EA;
+  --sidebar-ring: #0A6E79;
+}
+
+/* Base styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Utility classes */
+.text-primary {
+  color: var(--primary);
+}
+.text-accent {
+  color: var(--accent);
+}
+.text-muted-foreground {
+  color: var(--muted-foreground);
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-accent {
+  background-color: var(--accent);
+}
+.bg-muted {
+  background-color: var(--muted);
+}
+.border-border {
+  border-color: var(--border);
+}
+.bg-card {
+  background-color: var(--card);
+}
+.text-card-foreground {
+  color: var(--card-foreground);
+}
+.rounded-md {
+  border-radius: var(--radius);
+}
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+
+}
