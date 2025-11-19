@@ -1,0 +1,1 @@
+This file was added to help with the git commit process. If you can see this file, git should be able to as well.
