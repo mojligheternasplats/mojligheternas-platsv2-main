@@ -2,7 +2,7 @@
 // It uses the absolute URL for the currently running instance.
 
 // Use NEXT_PUBLIC_URL if available, otherwise default to localhost for development.
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3003/api";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.mplats.se";
 
 export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   // We need to append /api to the base URL for server-side calls
