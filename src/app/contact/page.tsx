@@ -18,30 +18,39 @@ export default function ContactPage() {
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('sending');
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setStatus("sending");
 
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, subject, message }),
-      });
-
-      if (res.ok) {
-        setStatus('sent');
-        setName('');
-        setEmail('');
-        setSubject('');
-        setMessage('');
-      } else {
-        setStatus('error');
       }
-    } catch {
-      setStatus('error');
+    );
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      setStatus("error");
+      return;
     }
-  };
+
+    setStatus("sent");
+    setName("");
+    setEmail("");
+    setSubject("");
+    setMessage("");
+  } catch (error) {
+    setStatus("error");
+  } finally {
+    // optional small delay to avoid UI flickering
+    setTimeout(() => setStatus("idle"), 3000);
+  }
+};
 
   return (
     <div>

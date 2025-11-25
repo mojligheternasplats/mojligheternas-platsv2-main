@@ -13,29 +13,39 @@ export default function EventRegister({ eventId }: { eventId: string }) {
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setMsg(null);
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
+  setMsg(null);
 
-    const res = await fetch(`http://localhost:3000/api/eventAttendance/${eventId}/register`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email }),
-    });
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/eventAttendance/${eventId}/register`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email }),
+      }
+    );
 
     const data = await res.json();
 
     if (!res.ok) {
-      setMsg(data.error || "Something went wrong.");
-    } else {
-      setMsg("You are successfully registered!");
-      setName("");
-      setEmail("");
+      // unified error messages
+      setMsg(data.error || "Registration failed. Try again.");
+      return;
     }
 
+    setMsg("You are successfully registered!");
+    setName("");
+    setEmail("");
+  } catch (err) {
+    setMsg("Network error. Please try again.");
+  } finally {
     setLoading(false);
-  };
+  }
+};
+
 
   return (
     <div className="mt-10 text-center space-y-6">

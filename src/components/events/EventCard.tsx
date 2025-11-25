@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 import type { Event } from '@/lib/definitions';
-import { formatDate } from '@/lib/utils';
+
 
 type EventCardProps = {
   event: Event;
