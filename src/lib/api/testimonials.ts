@@ -8,7 +8,7 @@ export async function getTestimonials(): Promise<YouthTestimonial[]> {
     const res = await serverFetch<YouthTestimonial[]>('/testimonials');
     return res ?? [];
   } catch (error) {
-    console.error('Failed to fetch testimonials:', error);
+    console.error('❌ Failed to fetch testimonials:', error);
     return [];
   }
 }
@@ -19,7 +19,7 @@ export async function getTestimonialsClient(): Promise<YouthTestimonial[]> {
     const res = await clientFetch<YouthTestimonial[]>('/testimonials');
     return res ?? [];
   } catch (error) {
-    console.error('Failed to fetch testimonials on client:', error);
+    console.error('❌ Failed to fetch testimonials on client:', error);
     return [];
   }
 }

@@ -2,6 +2,7 @@
 import { getEUProjects } from '@/lib/api/projects';
 import { PageHeader } from '@/components/shared/PageHeader'; // updated import path
 import { ProjectCard } from '@/components/projects/ProjectCard';
+import HeroSection from '@/components/projects/herosection';
 
 export default async function EuProjectsPage() {
   const projects = await getEUProjects();
@@ -12,12 +13,7 @@ export default async function EuProjectsPage() {
 
   return (
     <div>
-      <PageHeader
-        title="EU Collaborations"
-        description="Explore our European partnerships and Erasmus+ initiatives."
-        backgroundImage={headerImage??undefined}
-    
-      />
+       <HeroSection type='eu'/>
 
       <div className="container py-12 md:py-16">
         {projects.length ? (
@@ -33,3 +29,4 @@ export default async function EuProjectsPage() {
     </div>
   );
 }
+

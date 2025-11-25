@@ -17,6 +17,7 @@ import { getHeroClient } from "@/lib/api/hero";
 import { YouthTestimonial } from '@/lib/definitions'
 import { getTestimonialsClient } from '@/lib/api/testimonials';
 import { TestimonialCard } from '../components/testimonials/TestimonialCard';
+import MediaPreview from '@/components/MediaPreview';
 
 
 
@@ -53,49 +54,97 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Hero Section */}
-        <section id="hero" className="pt-16 min-h-screen flex items-center relative overflow-hidden bg-background text-foreground">
+        <section
+          id="hero"
+          className="
+    relative flex items-center overflow-hidden bg-background text-foreground
+    min-h-[80vh] md:min-h-screen
+    pt-20 md:pt-32
+  "
+        >
           {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary to-background z-0" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/40 to-background z-0" />
 
-          {/* Background image with soft blue light */}
+          {/* Background image */}
           <div className="absolute inset-0 z-0">
             <Image
               src={hero?.media?.[0]?.url || "/herofallbacke.jpg"}
               alt="Hero background"
               fill
               sizes="100vw"
-              className="object-cover opacity-60"
+              className="object-cover opacity-60 md:opacity-40"
               priority
             />
-
           </div>
 
-          {/* Content */}
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center z-10">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground drop-shadow-lg">
-              Skapar <span className="text-primary">trygga rum</span><br />
-              där unga kan <span className="text-accent">växa</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-              {t('home.hero.subtitle')}
+          {/* CONTENT */}
+          <div
+            className="
+      relative z-10 w-full mx-auto
+      px-4 sm:px-6 lg:px-8
+      py-16 sm:py-24 md:py-32
+      text-center
+      max-w-3xl md:max-w-4xl lg:max-w-6xl
+    "
+          >
+            {/* Title */}
+            <h1
+              className="
+        font-bold drop-shadow-xl
+        text-3xl sm:text-4xl md:text-6xl lg:text-7xl
+        leading-tight sm:leading-snug md:leading-tight
+        mb-6
+      "
+              dangerouslySetInnerHTML={{ __html: t("home.hero.title") }}
+            />
+
+            {/* Subtitle */}
+            <p
+              className="
+        text-base sm:text-lg md:text-2xl 
+        text-muted-foreground 
+        max-w-xl sm:max-w-2xl md:max-w-3xl 
+        mx-auto leading-relaxed drop-shadow-md
+        mb-8 sm:mb-10 md:mb-12
+      "
+            >
+              {t("home.hero.subtitle")}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+            {/* Buttons */}
+            <div
+              className="
+        flex flex-col sm:flex-row gap-4 justify-center
+        w-full max-w-sm sm:max-w-none mx-auto
+      "
+            >
               <Button
                 asChild
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all px-8 py-3 text-lg shadow-md"
+                className="
+          bg-primary text-primary-foreground hover:bg-primary/90
+          transition-all px-6 sm:px-8 py-3
+          text-base sm:text-lg shadow-lg
+        "
               >
                 <Link href="/projects">
-                  {t('home.hero.exploreProjects')} <ArrowRight className="ml-2 h-5 w-5" />
+                  {t("home.hero.exploreProjects")}
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
               </Button>
+
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all px-8 py-3 text-lg shadow-md"
+                className="
+          border-primary text-primary 
+          hover:bg-primary hover:text-primary-foreground
+          transition-all px-6 sm:px-8 py-3
+          text-base sm:text-lg shadow-lg
+        "
               >
-                <Link href="/contact">{t('home.hero.contactUs')}</Link>
+                <Link href="/contact">{t("home.hero.contactUs")}</Link>
               </Button>
             </div>
           </div>
@@ -225,41 +274,7 @@ export default function Home() {
         </section>
 
         {/* Media Preview Section */}
-        <section className="container mx-auto px-4 py-16 md:py-24">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">{t('home.media.title')}</h2>
-            <Button asChild variant="link" className="text-accent p-0 h-auto">
-              <Link href="/media">
-                {t('home.media.viewAll')} <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-          <div className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 -mx-4 px-4 scrollbar-hide">
-            {mediaItems.map((item) => {
-              const imageUrl = getMediaUrl(item.url);
-              return (
-                <div
-                  key={item.id}
-                  className="min-w-[280px] md:min-w-[320px] snap-start rounded-lg overflow-hidden shadow-md bg-card group"
-                >
-                  <Link href="/media">
-                    <div className="relative w-full h-48">
-                      <Image
-                        src={imageUrl ?? "/image/log.png"}
-                        alt={item.altText ?? 'Media item'}
-                        fill
-                        priority // 👈 Lägg till detta
-                        className="object-cover transform transition-transform duration-300 group-hover:scale-105"
-                        data-ai-hint={item.mediaType}
-                      />
-                    </div>
-                  </Link>
-                </div>
-              );
-            })}
-
-          </div>
-        </section>
+       <MediaPreview mediaItems={mediaItems} />
 
 
         {/* Upcoming Events Section */}

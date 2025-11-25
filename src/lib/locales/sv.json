@@ -35,6 +35,7 @@
     },
     "home": {
         "hero": {
+            "title": "Skapar <span class='text-primary'>trygga rum</span><br />där unga kan <span class='text-accent'>växa</span>",
             "subtitle": "Konstruerar robusta datapipelines och skalbara system för framtiden. Utforska våra projekt, forskning och aktiviteter.",
             "exploreProjects": "Utforska Projekt",
             "contactUs": "Kontakta Oss"
@@ -85,5 +86,26 @@
             "subtitle": "Oavsett om du är student, forskare eller potentiell partner finns det många sätt att engagera sig i vårt arbete.",
             "button": "Lär Dig Hur"
         }
+    },"localProjects": {
+    "hero": {
+      "title": "<span class='block'>Stärker <span class='text-primary'>lokala gemenskaper</span></span><span class='block'>genom projekt som <span class='text-accent'>skapar förändring</span></span>",
+      "subtitle": "Utforska våra lokala program som stöttar unga, familjer och närområden genom meningsfulla aktiviteter och gemenskapsdrivna initiativ.",
+      "exploreProjects": "Utforska lokala projekt",
+      "contactUs": "Engagera dig"
     }
+  },
+  "euCollaborationsPage": {
+    "hero": {
+      "title": "<span class='block'>Bygger <span class='text-primary'>europeiska samarbeten</span></span><span class='block'>som ger unga möjlighet att <span class='text-accent'>växa och utvecklas</span></span>",
+      "subtitle": "Vi samarbetar i hela Europa genom Erasmus+, ungdomsutbyten, ledarskapsprogram och internationella projekt som skapar möjligheter för unga.",
+      "exploreProjects": "Utforska EU-program",
+      "contactUs": "Samarbeta med oss"
+    }
+  },
+   "mediaPreview": {
+  "title": "Mediagalleri",
+  "description": "Utforska bilder och videor från våra evenemang, workshops och aktiviteter som fångar andan i vårt arbete.",
+  "viewAll": "Se hela galleriet"
+}
+
 }

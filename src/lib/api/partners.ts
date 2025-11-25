@@ -39,25 +39,3 @@ export async function getPartnersClient(): Promise<Partner[]> {
 }
 
 
-
-
-
-
-
-// export async function getPartners(): Promise<Partner[]> {
-//   try {
-//     return await serverFetch<Partner[]>('/partners');
-//   } catch (error) {
-//     console.error('Failed to fetch partners:', error);
-//     return [];
-//   }
-// }
-
-// export async function getPartnersClient(): Promise<Partner[]> {
-//     try {
-//       return await clientFetch<Partner[]>('/partners');
-//     } catch (error) {
-//       console.error('Failed to fetch partners on client:', error);
-//       return [];
-//     }
-//   }

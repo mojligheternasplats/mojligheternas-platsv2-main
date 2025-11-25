@@ -1,14 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { Card, CardContent } from "@/components/ui/card";
+import { getMediaClient } from "@/lib/api/media"; // ✅ use your helper
 
 export default async function MediaPage() {
-  const res = await fetch("http://localhost:3000/api/media/all",{
-    cache: "no-store",
-  });
+  // ✅ Fetch via client helper
+  const mediaItems = await getMediaClient();
 
-  const mediaItems = await res.json();
-  console.log("📸 Media Gallery (Direct Fetch):", mediaItems);
+  console.log("📸 Media Gallery (Client Fetch):", mediaItems);
 
   return (
     <div>
@@ -20,14 +20,21 @@ export default async function MediaPage() {
       <div className="container py-16 md:py-24">
         {Array.isArray(mediaItems) && mediaItems.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {mediaItems.map((item: any) => (
-              <Card key={item.id} className="overflow-hidden group rounded-xl shadow-sm">
+            {mediaItems.map((item) => (
+              <Card
+                key={item.id}
+                className="overflow-hidden group rounded-xl shadow-sm"
+              >
                 <CardContent className="p-0">
                   {/* IMAGE */}
                   {item.mediaType === "IMAGE" && (
                     <div className="aspect-[4/3]">
                       <Image
-                        src={item.url.startsWith("http") ? item.url : `http://localhost:3000${item.url}`}
+                        src={
+                          item.url.startsWith("http")
+                            ? item.url
+                            : `http://localhost:3000${item.url}`
+                        }
                         alt={item.altText ?? "Gallery image"}
                         width={400}
                         height={300}
@@ -40,10 +47,7 @@ export default async function MediaPage() {
                   {/* VIDEO */}
                   {item.mediaType === "VIDEO" && (
                     <div className="aspect-[4/3]">
-                      <video
-                        controls
-                        className="w-full h-full object-cover"
-                      >
+                      <video controls className="w-full h-full object-cover">
                         <source
                           src={
                             item.url.startsWith("http")
@@ -57,6 +61,7 @@ export default async function MediaPage() {
                     </div>
                   )}
                 </CardContent>
+              
               </Card>
             ))}
           </div>

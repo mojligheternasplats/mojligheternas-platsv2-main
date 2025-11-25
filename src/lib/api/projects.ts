@@ -8,7 +8,7 @@ interface PaginatedResponse<T> {
   meta: { page: number; limit: number; total: number };
 }
 
-// LOCAL activity categories (your predefined programs)
+// LOCAL activity categories
 const LOCAL_SLUGS = [
   "ledarskapsutbildning",
   "dreamacademy",
@@ -71,7 +71,9 @@ export async function getEUProjects(): Promise<Project[]> {
 // For navbar dropdown (server)
 export async function getLatestEUProjects(): Promise<Project[]> {
   try {
-    const response = await serverFetch<{ data: Project[] }>(`/projects/eu/latest`);
+    const response = await serverFetch<{ data: Project[] }>(
+      `/projects/eu/latest`
+    );
     return response.data;
   } catch (error) {
     console.error("❌ Failed to fetch EU projects for navbar:", error);

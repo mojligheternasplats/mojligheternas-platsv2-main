@@ -8,15 +8,18 @@ import { Badge } from "@/components/ui/badge";
 
 export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const project = await getProjectBySlug(params.slug);
+ 
 
   if (!project) notFound();
 
   // 🔹 Determine hero background image
+  // Safely read imageUrl from the project (cast to any to avoid type errors if the type doesn't include imageUrl)
+  const imageUrl = (project as any).imageUrl ?? null;
   const headerImage = 
     project.media?.[0]?.url
       ? getMediaUrl(project.media[0].url)
-      : project.imageUrl
-        ? project.imageUrl
+      : imageUrl
+        ? imageUrl
         : null;
 
   return (
@@ -33,19 +36,17 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
 
       {/* ------------------------------------------
           🟦 PAGE CONTENT
-      ------------------------------------------- */}
-      <div className="container max-w-4xl mx-auto py-12">
         {/* Inline image only if needed (since we already use hero) */}
-        {project.imageUrl && (
+        {imageUrl && (
           <Image
-            src={project.imageUrl}
+            src={imageUrl}
             width={1200}
             height={600}
             alt={project.title}
             className="rounded-lg shadow mb-8"
           />
         )}
-
+      <div className="container py-10">
         {/* HTML Content */}
         <div
           className="prose dark:prose-invert lg:prose-xl"

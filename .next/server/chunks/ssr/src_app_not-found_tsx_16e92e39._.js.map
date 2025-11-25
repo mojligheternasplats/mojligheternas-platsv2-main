@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/husse/Documents/GitHub/mojligheternas-platsv2-main/src/app/not-found.tsx"],"sourcesContent":["export default function NotFound() {\r\n  return (\r\n    <div className=\"container py-20 text-center\">\r\n      <h1 className=\"text-5xl font-bold mb-4\">Page Not Found</h1>\r\n      <p className=\"text-muted-foreground mb-8\">\r\n        We couldn't find what you were looking for.\r\n      </p>\r\n\r\n      <a\r\n        href=\"/\"\r\n        className=\"inline-block bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90\"\r\n      >\r\n        Go back home\r\n      </a>\r\n    </div>\r\n  );\r\n}\r\n"],"names":[],"mappings":";;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;;0BACb,8OAAC;gBAAG,WAAU;0BAA0B;;;;;;0BACxC,8OAAC;gBAAE,WAAU;0BAA6B;;;;;;0BAI1C,8OAAC;gBACC,MAAK;gBACL,WAAU;0BACX;;;;;;;;;;;;AAKP","debugId":null}}]
+}
