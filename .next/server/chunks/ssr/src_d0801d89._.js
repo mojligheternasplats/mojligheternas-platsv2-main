@@ -130,7 +130,8 @@ var { g: global, __dirname } = __turbopack_context__;
 __turbopack_context__.s({
     "getEventBySlug": (()=>getEventBySlug),
     "getEvents": (()=>getEvents),
-    "getEventsClient": (()=>getEventsClient)
+    "getEventsClient": (()=>getEventsClient),
+    "registerForEvent": (()=>registerForEvent)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2f$apiClient$2e$server$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/api/apiClient.server.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2f$apiClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/api/apiClient.ts [app-ssr] (ecmascript)");
@@ -160,6 +161,33 @@ async function getEventBySlug(slug) {
     } catch (error) {
         console.error(`Failed to fetch event by slug ${slug}:`, error);
         return null;
+    }
+}
+async function registerForEvent(eventId, payload) {
+    try {
+        const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2f$apiClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["apiFetch"])(`/eventAttendance/${eventId}/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+        if (res && typeof res === "object" && !Array.isArray(res)) {
+            return {
+                success: true,
+                ...res
+            };
+        }
+        return {
+            success: true,
+            data: res
+        };
+    } catch (error) {
+        console.error("Event registration failed:", error);
+        return {
+            success: false,
+            error: "Registreringen misslyckades. Försök igen."
+        };
     }
 }
 }}),
@@ -270,7 +298,7 @@ function getMediaUrl(url) {
     if (!url || url.trim() === "") return fallback;
     // Already a full URL (ex: Cloudinary, Unsplash)
     if (url.startsWith("http")) return url;
-    const base = ("TURBOPACK compile-time value", "https://api.mplats.se")?.replace(/\/$/, "");
+    const base = ("TURBOPACK compile-time value", "http://localhost:3003")?.replace(/\/$/, "");
     // If base is missing, avoid returning invalid URL
     if (!base) return fallback;
     return `${base}${url.startsWith("/") ? url : "/" + url}`;
@@ -284,7 +312,7 @@ var { g: global, __dirname } = __turbopack_context__;
 __turbopack_context__.s({
     "getHeroClient": (()=>getHeroClient)
 });
-const API_URL = ("TURBOPACK compile-time value", "https://api.mplats.se") || "http://localhost:3003";
+const API_URL = ("TURBOPACK compile-time value", "http://localhost:3003") || "http://localhost:3003";
 async function getHeroClient(page = "home") {
     const res = await fetch(`${API_URL}/api/heroSections/page/${page}`, {
         cache: "no-store"

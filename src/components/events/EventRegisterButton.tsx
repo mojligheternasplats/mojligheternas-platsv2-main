@@ -3,60 +3,42 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { registerForEvent } from "@/lib/api/events";
 
 export default function EventRegister({ eventId }: { eventId: string }) {
   const [showForm, setShowForm] = useState(false);
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setLoading(true);
-  setMsg(null);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setMsg(null);
 
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/eventAttendance/${eventId}/register`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
-      }
-    );
+    const result = await registerForEvent(eventId, { name, email });
 
-    const data = await res.json();
-
-    if (!res.ok) {
-      // unified error messages
-      setMsg(data.error || "Registration failed. Try again.");
+    if (!result.success) {
+      setMsg(result.error || "Registreringen misslyckades. Vänligen försök igen.");
+      setLoading(false);
       return;
     }
 
-    setMsg("You are successfully registered!");
+    setMsg(result.message || "Du är nu registrerad!");
     setName("");
     setEmail("");
-  } catch (err) {
-    setMsg("Network error. Please try again.");
-  } finally {
     setLoading(false);
-  }
-};
-
+  };
 
   return (
     <div className="mt-10 text-center space-y-6">
-      {/* STEP 1 — BUTTON TO REVEAL FORM */}
       {!showForm && (
         <Button size="lg" onClick={() => setShowForm(true)}>
           Register for this Event
         </Button>
       )}
 
-      {/* STEP 2 — FORM */}
       {showForm && (
         <form
           onSubmit={handleSubmit}

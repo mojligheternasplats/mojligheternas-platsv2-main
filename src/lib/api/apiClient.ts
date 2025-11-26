@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.mplats.se";
+import { API_URL } from "./api.config";
 
 export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   // endpoint must start with "/api"

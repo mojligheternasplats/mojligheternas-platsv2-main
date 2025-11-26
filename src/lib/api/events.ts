@@ -39,3 +39,28 @@ export async function getEventBySlug(slug: string): Promise<Event | null> {
     return null;
   }
 }
+
+
+
+export async function registerForEvent(
+  eventId: string,
+  payload: { name: string; email: string }
+) {
+  try {
+    const res = await clientFetch(`/eventAttendance/${eventId}/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (res && typeof res === "object" && !Array.isArray(res)) {
+      return { success: true, ...res };
+    }
+
+    return { success: true, data: res };
+  } catch (error) {
+    console.error("Event registration failed:", error);
+    return { success: false, error: "Registreringen misslyckades. Försök igen." };
+  }
+}
+

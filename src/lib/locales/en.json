@@ -81,10 +81,24 @@
       "subtitle": "Join us for our upcoming workshops, seminars, and camps.",
       "viewAll": "View All Events"
     },
-    "cta": {
-      "title": "Get Involved",
-      "subtitle": "Whether you're a student, researcher, or potential partner, there are many ways to engage with our work.",
-      "button": "Learn How"
+ "cta": {
+      "title": "Contact Us",
+      "description": "We’d love to hear from you. Fill out the form below.",
+      "formTitle": "Send a Message",
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending...",
+      "success": "Your message has been sent!",
+      "error": "Something went wrong. Please try again.",
+
+      "infoTitle": "Contact Information",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "visitLabel": "Visit Us",
+      "instagramLabel": "Instagram"
     }
   },
   "localProjects": {

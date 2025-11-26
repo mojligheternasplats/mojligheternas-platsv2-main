@@ -81,11 +81,25 @@
             "subtitle": "Gå med i våra kommande workshops, seminarier och läger.",
             "viewAll": "Se Alla Evenemang"
         },
-        "cta": {
-            "title": "Engagera Dig",
-            "subtitle": "Oavsett om du är student, forskare eller potentiell partner finns det många sätt att engagera sig i vårt arbete.",
-            "button": "Lär Dig Hur"
-        }
+ "cta": {
+      "title": "Kontakta oss",
+      "description": "Vi hjälper dig gärna. Fyll i formuläret nedan.",
+      "formTitle": "Skicka ett meddelande",
+      "name": "Ditt namn",
+      "email": "Din e-postadress",
+      "subject": "Ämne",
+      "message": "Meddelande",
+      "send": "Skicka",
+      "sending": "Skickar...",
+      "success": "Ditt meddelande har skickats!",
+      "error": "Något gick fel. Försök igen.",
+      
+      "infoTitle": "Kontaktinformation",
+      "emailLabel": "E-post",
+      "phoneLabel": "Telefon",
+      "visitLabel": "Besök oss",
+      "instagramLabel": "Instagram"
+    }
     },"localProjects": {
     "hero": {
       "title": "<span class='block'>Stärker <span class='text-primary'>lokala gemenskaper</span></span><span class='block'>genom projekt som <span class='text-accent'>skapar förändring</span></span>",

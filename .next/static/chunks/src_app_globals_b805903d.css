@@ -1261,10 +1261,6 @@ body {
   border-color: var(--color-border);
 }
 
-.border-border {
-  border-color: var(--border);
-}
-
 .border-destructive {
   border-color: var(--destructive);
 }

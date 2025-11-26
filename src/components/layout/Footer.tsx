@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { navigationRoutes } from '@/lib/routes';
-import { Github, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
 
 
@@ -11,8 +11,8 @@ function Logo() {
   const { t } = useTranslation();
   return (
     <Link href="/" className="flex items-center space-x-2">
-       <span className="h-8 w-8">
-        <img src="/image/log.png" alt="Logo" className="h-full w-full" />
+       <span className="h-15 w-8">
+        <img src="/image/mplog.png" alt="Logo" className="h-full w-full" />
        </span>
       <span className="font-bold text-xl font-headline text-foreground">{t('common.appName')}</span>
     </Link>
@@ -22,7 +22,7 @@ function Logo() {
 
 export function Footer() {
   const { t } = useTranslation();
-  const routes = navigationRoutes(t);
+  const routes = navigationRoutes(t as any);
   
   const mainRoutes = routes.filter(r => !r.subItems && r.path !== '/');
   const activityRoutes = routes.find(r => ['Verksamhet', 'Activities'].includes(r.name))?.subItems || [];
@@ -37,11 +37,19 @@ export function Footer() {
             <p className="mt-4 text-muted-foreground max-w-sm">
               {t('common.appDescription')}
             </p>
-            <div className="mt-6 flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-accent"><Twitter size={20} /></Link>
-              <Link href="#" className="text-muted-foreground hover:text-accent"><Github size={20} /></Link>
-              <Link href="#" className="text-muted-foreground hover:text-accent"><Linkedin size={20} /></Link>
-            </div>
+          <div className="mt-6 flex space-x-4">
+  
+  <Link href="/" className="text-muted-foreground hover:text-accent">
+    <Linkedin size={20} />
+  </Link>
+  <Link href="https://www.facebook.com/mplats" className="text-muted-foreground hover:text-accent">
+    <Facebook size={20} />
+  </Link>
+  <Link href="https://www.instagram.com/mojligheternasplats/" className="text-muted-foreground hover:text-accent">
+    <Instagram size={20} />
+  </Link>
+</div>
+
           </div>
           <div>
             <h3 className="font-semibold text-foreground">{t('footer.explore')}</h3>
