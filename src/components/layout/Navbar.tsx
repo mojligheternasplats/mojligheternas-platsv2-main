@@ -16,22 +16,23 @@ import {
   SheetTrigger,
   SheetContent,
   SheetHeader,
-  SheetTitle,
+  SheetTitle
 } from "@/components/ui/sheet";
 
 import { Button } from "@/components/ui/button";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 
 import {
   Accordion,
   AccordionItem,
   AccordionContent,
-  AccordionTrigger,
+  AccordionTrigger
 } from "@/components/ui/accordion";
 
 import { Menu, ChevronDown, X, Globe } from "lucide-react";
@@ -41,11 +42,10 @@ import { Menu, ChevronDown, X, Globe } from "lucide-react";
 -------------------------------------------------------------*/
 function Logo() {
   const { t } = useTranslation();
-
   return (
     <Link href="/" className="flex items-center space-x-2">
-      <img src="/image/mplog.png" alt="Logo" className="h-10 w-10 object-contain" />
-      <span className="font-bold text-xl font-headline text-primary">
+      <img src="/image/mplog.png" alt="Logo" className="h-9 w-9" />
+      <span className="font-bold text-xl text-primary font-headline">
         {t("common.appName")}
       </span>
     </Link>
@@ -61,22 +61,25 @@ function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" className="hover:bg-accent/20">
           <Globe className="h-5 w-5" />
-          <span className="sr-only">Change language</span>
         </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setLanguage("sv")}>Svenska</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setLanguage("en")}>English</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("sv")}>
+          Svenska
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("en")}>
+          English
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
 }
 
 /* ------------------------------------------------------------
-   NAVBAR
+   MAIN NAVBAR
 -------------------------------------------------------------*/
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,72 +88,80 @@ export function Navbar() {
 
   const baseItems = navigationRoutes(t as any);
 
-  // Load all EU projects
+  // Load EU projects
   const { items: euProjects } = useEUProjects();
 
-  // Inject EU sub-items dynamically
+  // Inject EU Items dynamically
   const items = useMemo<NavItem[]>(() => {
     return baseItems.map((item) => {
       if (item.path === "/eu") {
-        const subItems = euProjects.map((p) => ({
-          name: p.slug,
-          path: `/eu/${encodeURIComponent(p.slug)}`,
-        }));
-        return { ...item, subItems: subItems.length ? subItems : undefined };
+        return {
+          ...item,
+          subItems:
+            euProjects.length > 0
+              ? euProjects.map((p) => ({
+                  name: p.title || p.slug,
+                  path: `/eu/${encodeURIComponent(p.slug)}`
+                }))
+              : undefined
+        };
       }
       return item;
     });
-  }, [baseItems, euProjects]);
+  }, [euProjects, baseItems]);
 
-  // Main menu items
-  const mainNavItems = items.filter((i) =>
-    ["Verksamhet", "EU-samarbeten", "Activities", "EU Collaborations"].includes(i.name)
+  // Filter main desktop items
+  const mainNavItems = items.filter(
+    (i) =>
+      ["Verksamhet", "EU-samarbeten", "Activities", "EU Collaborations"].includes(
+        i.name
+      )
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+      <div className="container h-16 flex items-center">
 
-        {/* MOBILE NAV */}
+        {/* MOBILE HAMBURGER */}
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">Open Menu</span>
               </Button>
             </SheetTrigger>
 
-            <SheetContent side="left" className="pr-0 pt-0">
-              {/* Accessibility Title */}
+            <SheetContent
+              side="left"
+              className="w-[85%] p-0 flex flex-col bg-background"
+            >
+              {/* Hidden header for accessibility */}
               <SheetHeader className="sr-only">
-                <SheetTitle>Mobile Navigation Menu</SheetTitle>
+                <SheetTitle>Mobile Navigation</SheetTitle>
               </SheetHeader>
 
-              {/* Header with Logo & Close */}
-              <div className="flex justify-between items-center py-4 px-6 border-b">
+              {/* Top bar inside menu */}
+              <div className="flex justify-between items-center px-5 py-4 border-b">
                 <Logo />
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-                    <X className="h-6 w-6" />
-                    <span className="sr-only">Close Menu</span>
-                  </Button>
-                </SheetTrigger>
+                <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                  <X className="h-6 w-6" />
+                </Button>
               </div>
 
-              {/* Mobile Menu */}
-              <div className="p-4">
-                <nav className="flex flex-col space-y-2">
-                  <Accordion type="single" collapsible className="w-full">
-                    {items.map((item) => (
-                      <MobileNavLink
-                        key={item.name}
-                        item={item}
-                        setOpen={setIsOpen}
-                      />
-                    ))}
-                  </Accordion>
-                </nav>
+              {/* MOBILE NAV LINKS */}
+              <div className="p-5 overflow-y-auto flex-1">
+                <Accordion type="single" collapsible>
+                  {items.map((item) => (
+                    <MobileNavLink key={item.name} item={item} setOpen={setIsOpen} />
+                  ))}
+                </Accordion>
+              </div>
+
+              {/* CTA BUTTON */}
+              <div className="p-5 border-t">
+                <Button className="w-full" asChild onClick={() => setIsOpen(false)}>
+                  <Link href="/engagera">Engagera dig</Link>
+                </Button>
               </div>
             </SheetContent>
           </Sheet>
@@ -162,44 +173,47 @@ export function Navbar() {
         </div>
 
         {/* DESKTOP NAV */}
-        <div className="flex flex-1 items-center justify-end space-x-2">
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <nav className="hidden md:flex flex-1 justify-end items-center space-x-6 pr-2">
+          {mainNavItems.map((item) =>
+            item.subItems ? (
+              <NavDropdown key={item.name} item={item} />
+            ) : (
+              <NavLink key={item.name} href={item.path}>
+                {item.name}
+              </NavLink>
+            )
+          )}
 
-            {mainNavItems.map((item) =>
-              item.subItems ? (
-                <NavDropdown key={item.name} item={item} />
-              ) : (
-                <NavLink key={item.name} href={item.path}>
-                  {item.name}
-                </NavLink>
-              )
-            )}
+          {/* Events */}
+          <NavLink href="/events">{t("nav.events")}</NavLink>
 
-            <NavLink href="/events">{t("nav.events")}</NavLink>
-          </nav>
-
-          <div className="hidden md:flex items-center gap-2">
-            <LanguageSwitcher />
-          </div>
-        </div>
+          {/* Lang Switch */}
+          <LanguageSwitcher />
+        </nav>
       </div>
     </header>
   );
 }
 
 /* ------------------------------------------------------------
-   DESKTOP NAV LINK
+   DESKTOP LINK
 -------------------------------------------------------------*/
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({
+  href,
+  children
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const active = pathname === href;
 
   return (
     <Link
       href={href}
       className={cn(
-        "transition-colors hover:text-accent",
-        isActive ? "text-accent" : "text-foreground/60"
+        "hover:text-accent transition-colors text-sm font-medium",
+        active ? "text-accent" : "text-foreground/60"
       )}
     >
       {children}
@@ -209,13 +223,10 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 
 /* ------------------------------------------------------------
    DESKTOP DROPDOWN
-   (Conditional "All Projects" based on menu type)
 -------------------------------------------------------------*/
 function NavDropdown({ item }: { item: NavItem }) {
   const pathname = usePathname();
-  const isActive = (item.subItems ?? []).some((sub) =>
-    pathname.startsWith(sub.path)
-  );
+  const highlight = item.subItems?.some((s) => pathname.startsWith(s.path));
 
   return (
     <DropdownMenu>
@@ -223,32 +234,19 @@ function NavDropdown({ item }: { item: NavItem }) {
         <Button
           variant="ghost"
           className={cn(
-            "px-2 text-sm font-medium hover:text-accent focus-visible:ring-0",
-            isActive ? "text-accent" : "text-foreground/60"
+            "px-2 text-sm font-medium hover:text-accent",
+            highlight ? "text-accent" : "text-foreground/60"
           )}
         >
           {item.name}
-          <ChevronDown className="ml-1 h-4 w-4" />
+          <ChevronDown className="w-4 h-4 ml-1" />
         </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent>
-        {/* ✅ Conditional: EU or Activities? */}
-        {item.path === "/eu" && (
-          <DropdownMenuItem asChild>
-            <Link href="/eu">All EU Projects</Link>
-          </DropdownMenuItem>
-        )}
-
-        {item.path === "/activities " && (
-          <DropdownMenuItem asChild>
-            <Link href="/projects/local">All Local Projects</Link>
-          </DropdownMenuItem>
-        )}
-
-        {(item.subItems ?? []).map((subItem) => (
-          <DropdownMenuItem key={subItem.name} asChild>
-            <Link href={subItem.path}>{subItem.name}</Link>
+        {item.subItems?.map((sub) => (
+          <DropdownMenuItem key={sub.name} asChild>
+            <Link href={sub.path}>{sub.name}</Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
@@ -258,82 +256,47 @@ function NavDropdown({ item }: { item: NavItem }) {
 
 /* ------------------------------------------------------------
    MOBILE NAV LINK
-   (Conditional sub-items)
 -------------------------------------------------------------*/
 function MobileNavLink({
   item,
-  setOpen,
+  setOpen
 }: {
   item: NavItem;
-  setOpen: (open: boolean) => void;
+  setOpen: (v: boolean) => void;
 }) {
   const pathname = usePathname();
-  const isActive =
-    item.path !== "#"
-      ? pathname === item.path
-      : item.subItems?.some((sub) => pathname.startsWith(sub.path));
+  const active =
+    item.subItems?.some((s) => pathname.startsWith(s.path)) ||
+    pathname === item.path;
 
-  const handleClick = () => {
-    if (!item.subItems) setOpen(false);
-  };
-
+  // ❌ Skip Engage
   if (item.name === "Engage") return null;
 
   if (item.subItems?.length) {
     return (
-      <AccordionItem value={item.name} className="border-b-0">
+      <AccordionItem value={item.name}>
         <AccordionTrigger
           className={cn(
             "py-3 font-semibold hover:no-underline",
-            isActive && "text-accent"
+            active && "text-accent"
           )}
         >
           {item.name}
         </AccordionTrigger>
 
         <AccordionContent>
-          <div className="flex flex-col space-y-2 pl-4">
-
-            {/* ✅ MOBILE: Add conditional project links */}
-            {item.path === "/eu" && (
+          <div className="pl-4 space-y-2 py-2">
+            {item.subItems.map((sub) => (
               <Link
-                href="/eu"
+                key={sub.name}
+                href={sub.path}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "block rounded-md p-2 hover:bg-muted",
-                  pathname === "/eu" ? "text-accent" : "text-foreground/80"
+                  "block p-2 rounded hover:bg-muted",
+                  pathname === sub.path ? "text-accent" : "text-foreground/70"
                 )}
               >
-                All EU Projects
-              </Link>
-            )}
-
-            {item.path === "/activities" && (
-              <Link
-                href="/projects/local"
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "block rounded-md p-2 hover:bg-muted",
-                  pathname === "/projects/local" ? "text-accent" : "text-foreground/80"
-                )}
-              >
-                All Local Projects
-              </Link>
-            )}
-
-            {item.subItems.map((subItem) => (
-              <Link
-                key={subItem.name}
-                href={subItem.path}
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "block rounded-md p-2 hover:bg-muted",
-                  pathname === subItem.path
-                    ? "text-accent"
-                    : "text-foreground/80"
-                )}
-              >
-                {subItem.name}
+                {sub.name}
               </Link>
             ))}
           </div>
@@ -345,12 +308,10 @@ function MobileNavLink({
   return (
     <Link
       href={item.path}
-      onClick={handleClick}
+      onClick={() => setOpen(false)}
       className={cn(
-        "block rounded-md py-3 text-base hover:bg-muted px-3",
-        isActive
-          ? "font-semibold text-accent"
-          : "font-medium text-foreground/80"
+        "block py-3 px-3 rounded-md text-base hover:bg-muted",
+        active ? "text-accent font-semibold" : "text-foreground/80"
       )}
     >
       {item.name}
