@@ -1,52 +1,112 @@
-import { getNewsBySlug } from '@/lib/api/news';
-import { notFound, redirect } from 'next/navigation';
-import Image from 'next/image';
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
-import { getMediaUrl } from '@/lib/getMediaUrl';
+import { getNewsBySlug } from "@/lib/api/news";
+import { notFound, redirect } from "next/navigation";
+import Image from "next/image";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { getMediaUrl } from "@/lib/getMediaUrl";
 
 export default async function NewsDetailPage({ params }: { params: { slug: string } }) {
   let slug = await params?.slug;
-  if (slug.includes('+')) {
-    slug = slug.replace(/\+/g, 'plus');
+
+  // Handle + signs
+  if (slug.includes("+")) {
+    slug = slug.replace(/\+/g, "plus");
     redirect(`/news/${slug}`);
   }
 
   const article = await getNewsBySlug(slug);
   if (!article) notFound();
 
-  const image = article.media?.find((m) => m.mediaType === 'IMAGE') ?? null;
+  const image = article.media?.find((m) => m.mediaType === "IMAGE") ?? null;
   const imageUrl = getMediaUrl(image?.url);
 
   return (
-    <div className="container max-w-4xl mx-auto py-12 md:py-20">
-      <Link href="/news" className="inline-flex items-center gap-2 text-accent hover:underline mb-8">
-        <ArrowLeft size={16} />
-        Back to News
-      </Link>
+    <div className="min-h-screen bg-background">
 
-      <article>
-        <header className="mb-8">
-          <h1 className="font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-primary">
-            {article.title}
-          </h1>
-        </header>
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b">
+        <div className="container mx-auto flex items-center justify-between h-14">
+          <ButtonBack />
+          <span className="hidden sm:block text-sm font-semibold">Möjligheternas Plats</span>
+          <div className="w-8" />
+        </div>
+      </nav>
 
-        {imageUrl && (
-          <Image
-            src={imageUrl}
-            alt={article.title}
-            width={1200}
-            height={600}
-            className="rounded-lg mb-8"
+      {/* Hero */}
+      <section className="py-10 md:py-16 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+        <div className="container max-w-3xl mx-auto space-y-6">
+
+          {/* Title */}
+          <header className="space-y-4">
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground">
+              {article.title}
+            </h1>
+          </header>
+
+          {/* Image */}
+          {imageUrl && (
+            <div className="relative h-60 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-md">
+              <Image
+                src={imageUrl}
+                alt={article.title}
+                fill
+                className="object-cover transition-transform duration-500 hover:scale-105"
+                priority
+              />
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Content */}
+      <section className="py-12 md:py-16">
+        <div className="container max-w-3xl mx-auto">
+
+          <article
+            className="
+              prose prose-base
+              sm:prose-lg
+              md:prose-xl
+              lg:prose-2xl
+              dark:prose-invert
+
+              max-w-none
+              leading-relaxed
+
+              prose-headings:font-headline
+              prose-headings:font-bold
+              prose-headings:text-2xl
+              md:prose-headings:text-3xl
+              lg:prose-headings:text-4xl
+
+              prose-p:text-foreground
+              prose-p:leading-relaxed
+
+              prose-ul:mt-4
+              prose-li:my-1
+
+              prose-strong:text-foreground
+              prose-strong:font-semibold
+
+              prose-img:rounded-xl
+            "
+            dangerouslySetInnerHTML={{ __html: article.content ?? "" }}
           />
-        )}
-
-        <div
-          className="prose dark:prose-invert lg:prose-xl mx-auto"
-          dangerouslySetInnerHTML={{ __html: article.content ?? '' }}
-        />
-      </article>
+        </div>
+      </section>
     </div>
+  );
+}
+
+/* Back Button Component */
+function ButtonBack() {
+  return (
+    <Link
+      href="/news"
+      className="inline-flex items-center gap-2 text-accent hover:underline"
+    >
+      <ArrowLeft size={16} />
+      <span className="hidden sm:inline">Tillbaka</span>
+    </Link>
   );
 }

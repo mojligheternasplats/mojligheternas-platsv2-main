@@ -34,6 +34,10 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service"
   },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We’re here to help you."
+  },
   "home": {
     "hero": {
       "title": "Creating <span class='text-primary'>safe spaces</span><br />where youth can <span class='text-accent'>grow</span>",

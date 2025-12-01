@@ -24,6 +24,10 @@
         "contact": "Kontakt",
         "engage": "Engagera dig"
     },
+   "contact": {
+     "title": "Kontakt",
+    "subtitle": "Vi finns här för att hjälpa dig."
+  },
     "partners": {
         "title": "Våra samarbetspartners",
         "description": "Vi är stolta över att samarbeta med ledande organisationer och institutioner från hela världen."

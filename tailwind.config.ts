@@ -7,6 +7,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
   theme: {
     container: {
       center: true,
@@ -15,43 +16,81 @@ const config: Config = {
         '2xl': '1400px',
       },
     },
+
     extend: {
+      /* ---------------- FONT ---------------- */
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         headline: ['Inter', 'sans-serif'],
         code: ['Source Code Pro', 'monospace'],
       },
+
+      /* ---------------- KEYFRAMES ---------------- */
+      keyframes: {
+        // Hero text slide-in animation
+        slideInRight: {
+          "0%": { opacity: "0", transform: "translateX(50px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+
+        // Accordion animations
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+
+      /* ---------------- ANIMATIONS ---------------- */
+      animation: {
+        slideInRight: "slideInRight 1.2s ease-out forwards",
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+
+      /* ---------------- COLORS ---------------- */
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+
         card: {
           DEFAULT: 'var(--card)',
           foreground: 'var(--card-foreground)',
         },
+
         popover: {
           DEFAULT: 'var(--popover)',
           foreground: 'var(--popover-foreground)',
         },
+
         primary: {
           DEFAULT: 'var(--primary)',
           foreground: 'var(--primary-foreground)',
         },
+
         secondary: {
           DEFAULT: 'var(--secondary)',
           foreground: 'var(--secondary-foreground)',
         },
+
         muted: {
           DEFAULT: 'var(--muted)',
           foreground: 'var(--muted-foreground)',
         },
+
         accent: {
           DEFAULT: 'var(--accent)',
           foreground: 'var(--accent-foreground)',
         },
+
         destructive: {
           DEFAULT: 'var(--destructive)',
           foreground: 'var(--destructive-foreground)',
         },
+
         border: 'var(--border)',
         input: 'var(--input)',
         ring: 'var(--ring)',
@@ -76,29 +115,15 @@ const config: Config = {
         },
       },
 
+      /* ---------------- RADIUS ---------------- */
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
-
-      keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
-        },
-      },
-
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-      },
     },
   },
+
   plugins: [
     require('tailwindcss-animate'),
     require('tailwind-scrollbar-hide'),

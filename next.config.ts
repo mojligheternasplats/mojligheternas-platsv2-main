@@ -39,7 +39,7 @@ const nextConfig: NextConfig = {
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '3003', // backend dev port
+        port: '8080', // backend dev port
         pathname: '/uploads/**',
       },
     ],

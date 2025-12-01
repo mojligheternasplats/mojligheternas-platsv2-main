@@ -67,6 +67,7 @@ export default function MediaPreview({ mediaItems }: { mediaItems: any[] }) {
                     priority
                     className="object-cover transform transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={item.mediaType}
+                     unoptimized
                   />
                 </div>
               </Link>
