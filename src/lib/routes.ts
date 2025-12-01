@@ -21,7 +21,7 @@ export const navigationRoutes = (t: TFunction): NavItem[] => [
   { name: t('nav.euCollaborations'), path: '/eu' },
 
   // LOCAL PROJECTS
-  { name: t('nav.localProjects'), path: '/projects/local' },
+  { name: t('nav.localProjects'), path: '/projects' },
 
   // STANDARD PAGES
   { name: t('nav.news'), path: '/news' },

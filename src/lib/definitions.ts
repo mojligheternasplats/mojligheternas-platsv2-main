@@ -1,6 +1,7 @@
 export type NavItem = {
   name: string;
   path: string;
+  displayName?: string;
   subItems?: NavItem[];
 };
 

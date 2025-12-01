@@ -751,6 +751,10 @@ body {
   height: 100svh;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .max-h-96 {
   max-height: 24rem;
 }
@@ -1166,6 +1170,12 @@ body {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(.75rem * var(--tw-space-y-reverse));
 }
 
 .overflow-auto {
@@ -2863,6 +2873,11 @@ body {
     line-height: 1.75rem;
   }
 
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
   .sm\:leading-snug {
     line-height: 1.375;
   }
@@ -3009,6 +3024,11 @@ body {
     line-height: 1.25rem;
   }
 
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
   .md\:leading-tight {
     line-height: 1.25;
   }
@@ -3078,6 +3098,11 @@ body {
   .lg\:text-7xl {
     font-size: 4.5rem;
     line-height: 1;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 

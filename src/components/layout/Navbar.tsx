@@ -40,17 +40,27 @@ import { Menu, ChevronDown, X, Globe } from "lucide-react";
 /* ------------------------------------------------------------
    LOGO
 -------------------------------------------------------------*/
+
+
 function Logo() {
   const { t } = useTranslation();
+
   return (
     <Link href="/" className="flex items-center space-x-2">
-      <img src="/image/mplog.png" alt="Logo" className="h-9 w-9" />
-      <span className="font-bold text-xl text-primary font-headline">
+      <img
+        src="/image/mplog.png"
+        alt="Logo"
+        className="h-9 w-12 object-cover"
+      />
+      <span className="font-bold text-sm sm:text-base md:text-lg lg:text-xl text-primary font-headline">
         {t("common.appName")}
       </span>
     </Link>
   );
 }
+
+
+
 
 /* ------------------------------------------------------------
    LANGUAGE SWITCHER
@@ -100,9 +110,9 @@ export function Navbar() {
           subItems:
             euProjects.length > 0
               ? euProjects.map((p) => ({
-                  name: p.title || p.slug,
-                  path: `/eu/${encodeURIComponent(p.slug)}`
-                }))
+                name: p.title || p.slug,
+                path: `/eu/${encodeURIComponent(p.slug)}`
+              }))
               : undefined
         };
       }
@@ -143,10 +153,14 @@ export function Navbar() {
               {/* Top bar inside menu */}
               <div className="flex justify-between items-center px-5 py-4 border-b">
                 <Logo />
-                <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-                  <X className="h-6 w-6" />
-                </Button>
+                <div className="flex items-center space-x-2">
+                  <LanguageSwitcher />
+                  <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                    <X className="h-6 w-6" />
+                  </Button>
+                </div>
               </div>
+
 
               {/* MOBILE NAV LINKS */}
               <div className="p-5 overflow-y-auto flex-1">
@@ -158,11 +172,15 @@ export function Navbar() {
               </div>
 
               {/* CTA BUTTON */}
-              <div className="p-5 border-t">
+              {/* CTA BUTTON + LANGUAGE SWITCHER */}
+              <div className="p-5 border-t space-y-3">
                 <Button className="w-full" asChild onClick={() => setIsOpen(false)}>
                   <Link href="/engagera">Engagera dig</Link>
                 </Button>
+
+           
               </div>
+
             </SheetContent>
           </Sheet>
         </div>
@@ -170,6 +188,7 @@ export function Navbar() {
         {/* LOGO */}
         <div className="flex-1 md:flex-none">
           <Logo />
+
         </div>
 
         {/* DESKTOP NAV */}
@@ -297,11 +316,16 @@ function MobileNavLink({
                 )}
               >
                 {sub.name}
+
               </Link>
             ))}
+
           </div>
+
         </AccordionContent>
+
       </AccordionItem>
+
     );
   }
 
@@ -315,6 +339,7 @@ function MobileNavLink({
       )}
     >
       {item.name}
+
     </Link>
   );
 }
