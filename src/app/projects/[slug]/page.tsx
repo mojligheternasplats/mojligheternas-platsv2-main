@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { getMediaUrl } from "@/lib/getMediaUrl";
 import Image from "next/image";
 import { Calendar, Users, Building2 } from "lucide-react";
+import { TextWithGaps } from "@/components/TextWithGaps";
 
 export default async function ProjectDetailPage({
   params,
@@ -72,18 +73,10 @@ export default async function ProjectDetailPage({
           )}
 
           {/* Content */}
-          <article
-            className="
-              prose prose-base sm:prose-lg md:prose-xl lg:prose-2xl
-              dark:prose-invert max-w-none leading-relaxed
-              prose-headings:font-headline prose-headings:font-bold
-              prose-headings:text-3xl md:prose-headings:text-4xl
-              prose-p:text-foreground prose-ul:mt-4 prose-li:my-1
-              prose-strong:text-primary prose-img:rounded-lg
-            "
-            dangerouslySetInnerHTML={{ __html: project.content || "" }}
-          />
 
+          {project.content && (
+            <TextWithGaps text={project.content} />
+          )}
           {/* Divider line */}
           <div className="my-12 border-t border-border"></div>
 

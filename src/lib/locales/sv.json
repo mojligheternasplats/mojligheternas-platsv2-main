@@ -24,6 +24,24 @@
         "contact": "Kontakt",
         "engage": "Engagera dig"
     },
+    "about": {
+    "title": "Om Oss",
+    "subtitle": "Vi bygger intelligenta datasystem som formar framtiden.",
+    "intro": "DataFlow Architect är en modern forsknings- och ingenjörsorganisation som utvecklar hur världen designar och förstår komplexa datasystem. Sedan 2015 har vårt uppdrag varit att bygga pålitliga, skalbara och framtidssäkra dataarkitekturer för organisationer inom olika branscher.",
+    "imageAlt": "Teamarbete på DataFlow Architect",
+    "visionTitle": "Vår Vision",
+    "visionText": "Vi ser en värld där data flödar sömlöst och säkert, vilket möjliggör smartare städer, hållbara industrier, vetenskapliga genombrott och meningsfull innovation.",
+    "whatWeDoTitle": "Vad Vi Gör",
+    "whatWeDoIntro": "Vår expertis bygger på tre huvudpelare:",
+    "researchTitle": "Grundforskning",
+    "researchText": "Vi utforskar avancerade koncept inom distribuerade system, databasteori och storskalig databehandling.",
+    "appliedTitle": "Tillämpad Ingenjörskonst",
+    "appliedText": "Vi samarbetar med företag och offentliga aktörer för att lösa verkliga utmaningar med praktiska och hållbara lösningar.",
+    "educationTitle": "Utbildning & Outreach",
+    "educationText": "Vi stödjer kompetensutveckling genom workshops, läger och program som förbereder nästa generations ingenjörer.",
+    "quote": "“Vårt mål är inte bara att bygga system, utan att skapa tydlighet. Vi förvandlar komplex data till insikter som betyder något.”",
+    "closing": "Vårt tvärvetenskapliga team arbetar i teknikens framkant. Utforska vårt arbete och följ med oss när vi formar nästa era av dataarkitektur."
+  },
    "contact": {
      "title": "Kontakt",
     "subtitle": "Vi finns här för att hjälpa dig."

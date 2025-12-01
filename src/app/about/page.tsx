@@ -1,60 +1,80 @@
-import { PageHeader } from '@/components/shared/PageHeader';
-import Image from 'next/image';
+"use client";
+
+import { PageHeader } from "@/components/shared/PageHeader";
+import Image from "next/image";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function AboutPage() {
+  const { t } = useTranslation();
+
   return (
-    <div>
+    <div className="animate-fadeIn">
       <PageHeader
-        title="About Us"
-        description="Pioneering the future of data systems through innovation, research, and collaboration."
+        title={t("about.title")}
+        description={t("about.subtitle")}
       />
-      <div className="container py-16 md:py-24">
-        <div className="prose lg:prose-xl mx-auto">
-          <p>
-            DataFlow Architect is a leading research institution and consultancy dedicated to solving the most
-            challenging problems in data engineering and systems architecture. Founded in 2015, our mission is to
-            design, build, and deploy robust, scalable, and efficient data solutions that empower organizations
-            to unlock the full potential of their data.
-          </p>
-          
-          <div className="my-12 not-prose">
-            <Image 
-              src="https://picsum.photos/seed/about-us/1200/500"
-              alt="Our team working collaboratively"
-              width={1200}
-              height={500}
-              className="rounded-lg shadow-lg w-full object-cover"
-              data-ai-hint="team collaboration"
-            />
+
+      <div className="container py-16 md:py-24 space-y-24">
+        {/* Intro */}
+        <section className="max-w-4xl mx-auto prose lg:prose-xl animate-slideUp">
+          <p>{t("about.intro")}</p>
+
+          <div className="my-12 not-prose group">
+            <div className="overflow-hidden rounded-xl shadow-xl">
+              <Image
+                src="https://picsum.photos/seed/about-us/1200/500"
+                alt={t("about.imageAlt")}
+                width={1200}
+                height={500}
+                className="rounded-lg w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
           </div>
+        </section>
 
-          <h2>Our Vision</h2>
-          <p>
-            We envision a world where data flows seamlessly and securely, enabling breakthroughs in science,
-            smarter cities, more efficient industries, and a more connected global community. We believe that
-            well-designed data architecture is the bedrock of modern innovation.
+        {/* Vision Section */}
+        <section className="max-w-4xl mx-auto animate-slideUp delay-150">
+          <h2 className="text-3xl font-bold mb-4">{t("about.visionTitle")}</h2>
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            {t("about.visionText")}
+          </p>
+        </section>
+
+        {/* What We Do Section */}
+        <section className="max-w-4xl mx-auto animate-slideUp delay-300">
+          <h2 className="text-3xl font-bold mb-4">{t("about.whatWeDoTitle")}</h2>
+          <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+            {t("about.whatWeDoIntro")}
           </p>
 
-          <h2>What We Do</h2>
-          <p>
-            Our work spans across three main pillars:
-          </p>
-          <ul>
-            <li><strong>Fundamental Research:</strong> We push the boundaries of what's possible in distributed systems, database design, and large-scale data processing.</li>
-            <li><strong>Applied Projects:</strong> We partner with industry leaders and public institutions to solve real-world problems, turning theoretical research into practical, impactful solutions.</li>
-            <li><strong>Education & Outreach:</strong> Through workshops, camps, and academic programs, we are committed to nurturing the next generation of data architects and engineers.</li>
+          <ul className="space-y-6">
+            <li className="p-6 rounded-xl bg-muted/40 backdrop-blur-sm border hover:bg-muted/60 transition">
+              <strong>{t("about.researchTitle")}</strong> — {t("about.researchText")}
+            </li>
+
+            <li className="p-6 rounded-xl bg-muted/40 backdrop-blur-sm border hover:bg-muted/60 transition">
+              <strong>{t("about.appliedTitle")}</strong> — {t("about.appliedText")}
+            </li>
+
+            <li className="p-6 rounded-xl bg-muted/40 backdrop-blur-sm border hover:bg-muted/60 transition">
+              <strong>{t("about.educationTitle")}</strong> — {t("about.educationText")}
+            </li>
           </ul>
+        </section>
 
-          <blockquote>
-            "Our goal is not just to build systems, but to build understanding. We transform complex data landscapes into clear, actionable insights."
+        {/* Quote */}
+        <section className="max-w-4xl mx-auto animate-slideUp delay-500">
+          <blockquote className="p-8 rounded-xl bg-primary/5 border-l-4 border-primary text-xl italic">
+            {t("about.quote")}
           </blockquote>
-          
-          <p>
-            Our interdisciplinary team of computer scientists, engineers, and domain experts works at the
-            forefront of technology. We invite you to explore our work and join us on our mission to
-            architect the future of data.
+        </section>
+
+        {/* Closing */}
+        <section className="max-w-4xl mx-auto animate-slideUp delay-700">
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            {t("about.closing")}
           </p>
-        </div>
+        </section>
       </div>
     </div>
   );
