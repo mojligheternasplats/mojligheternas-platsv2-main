@@ -85,9 +85,10 @@ export default async function ProjectDetailPage({
             <h3 className="text-2xl font-headline font-bold mb-4">Vill du veta mer?</h3>
             <p className="text-muted-foreground mb-6">
               Kontakta oss om du vill samarbeta eller veta mer om projektet.
+              
             </p>
             <a
-              href="/contact"
+              href="/engage"
               className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg shadow hover:shadow-lg transition-all"
             >
               Kontakta oss
