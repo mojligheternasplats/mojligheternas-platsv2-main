@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { getMediaUrl } from "@/lib/getMediaUrl";
 import Image from "next/image";
-import { Calendar, Users, Building2 } from "lucide-react";
+
 import { TextWithGaps } from "@/components/TextWithGaps";
 
 export default async function ProjectDetailPage({
@@ -34,28 +34,6 @@ export default async function ProjectDetailPage({
         backgroundImage={headerImage}
       />
 
-      {/* 🟦 PROJECT INFO BAR */}
-      <section className="border-b bg-card/40 backdrop-blur py-6">
-        <div className="container max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 text-center gap-6">
-          <InfoBox
-            icon={<Calendar className="w-5 h-5" />}
-            label="Skapad"
-            value={new Date(project.createdAt).toLocaleDateString("sv-SE")}
-          />
-
-          <InfoBox
-            icon={<Building2 className="w-5 h-5" />}
-            label="Kategori"
-            value={project.category || "Projekt"}
-          />
-
-          <InfoBox
-            icon={<Users className="w-5 h-5" />}
-            label="Målgrupp"
-            value={project.targetGroup || "Unga & samhälle"}
-          />
-        </div>
-      </section>
 
       {/* 🟦 PROJECT CONTENT */}
       <section className="py-12 md:py-16">

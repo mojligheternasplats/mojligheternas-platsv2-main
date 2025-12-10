@@ -43,7 +43,9 @@ const config: Config = {
           to: { height: '0' },
         },
       },
-
+ transitionProperty: {
+    'colors': 'background-color, border-color, color, fill, stroke',
+  },
       /* ---------------- ANIMATIONS ---------------- */
       animation: {
         slideInRight: "slideInRight 1.2s ease-out forwards",

@@ -82,14 +82,17 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="font-body antialiased min-h-screen flex flex-col" suppressHydrationWarning>
-        <LanguageProvider>
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <Toaster />
-        </LanguageProvider>
-      </body>
+     <body
+  className="font-body antialiased min-h-screen flex flex-col bg-background text-foreground"
+  suppressHydrationWarning
+>
+  <LanguageProvider>
+    <Navbar />
+    <main className="flex-grow">{children}</main>
+    <Footer />
+    <Toaster />
+  </LanguageProvider>
+</body>
     </html>
   );
 }
