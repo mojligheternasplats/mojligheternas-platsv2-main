@@ -14,7 +14,7 @@ export default async function ProjectsPage() {
       <HeroSection type='local'/>
         <div className="container py-12 md:py-16">
 
-        <ImageCard/>
+
       {localProjects.length ? (
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-10">
           {localProjects.map((p) => <ProjectCard key={p.id} project={p} />)}

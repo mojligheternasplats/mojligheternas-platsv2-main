@@ -192,23 +192,26 @@ export function Navbar() {
         </div>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden md:flex flex-1 justify-end items-center space-x-6 pr-2">
-          {mainNavItems.map((item) =>
-            item.subItems ? (
-              <NavDropdown key={item.name} item={item} />
-            ) : (
-              <NavLink key={item.name} href={item.path}>
-                {item.name}
-              </NavLink>
-            )
-          )}
+      <nav className="hidden md:flex flex-1 justify-end items-center space-x-6 pr-2">
+  <NavLink href="/about">{t("nav.about")}</NavLink>
 
-          {/* Events */}
-          <NavLink href="/events">{t("nav.events")}</NavLink>
+  {mainNavItems.map((item) =>
+    item.subItems ? (
+      <NavDropdown key={item.name} item={item} />
+    ) : (
+      <NavLink key={item.name} href={item.path}>
+        {item.name}
+      </NavLink>
+    )
+  )}
 
-          {/* Lang Switch */}
-          <LanguageSwitcher />
-        </nav>
+  {/* Events */}
+  <NavLink href="/events">{t("nav.events")}</NavLink>
+
+  {/* Lang Switch */}
+  <LanguageSwitcher />
+</nav>
+
       </div>
     </header>
   );
@@ -217,23 +220,23 @@ export function Navbar() {
 /* ------------------------------------------------------------
    DESKTOP LINK
 -------------------------------------------------------------*/
-function NavLink({
-  href,
-  children
-}: {
+type NavLinkProps = {
   href: string;
   children: React.ReactNode;
-}) {
+};
+
+export function NavLink({ href, children }: NavLinkProps) {
   const pathname = usePathname();
-  const active = pathname === href;
+  const isActive = pathname === href;
 
   return (
     <Link
       href={href}
-      className={cn(
-        "hover:text-accent transition-colors text-sm font-medium",
-        active ? "text-accent" : "text-foreground/60"
-      )}
+      className={`relative px-2 py-1 transition-colors ${
+        isActive
+          ? "text-primary font-semibold after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-primary"
+          : "text-foreground hover:text-primary"
+      }`}
     >
       {children}
     </Link>
@@ -309,11 +312,12 @@ function MobileNavLink({
               <Link
                 key={sub.name}
                 href={sub.path}
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "block p-2 rounded hover:bg-muted",
-                  pathname === sub.path ? "text-accent" : "text-foreground/70"
-                )}
+               onClick={() => setOpen(false)}
+className={cn(
+  "block p-2 rounded transition-colors hover:bg-muted hover:text-blue-600",
+  pathname === sub.path ? "text-accent font-semibold" : "text-foreground/70"
+)}
+
               >
                 {sub.name}
 

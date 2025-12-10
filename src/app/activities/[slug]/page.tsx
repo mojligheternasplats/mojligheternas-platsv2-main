@@ -5,6 +5,9 @@ import { getMediaUrl } from "@/lib/getMediaUrl";
 import Image from "next/image";
 import { TextWithGaps } from "@/components/TextWithGaps";
 import { imageConfigDefault } from "next/dist/shared/lib/image-config";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+ import {ArrowLeft } from "lucide-react";
 
 export default async function ProjectDetailPage({
   params,
@@ -25,6 +28,20 @@ const headerImage = project.media?.[0]?.url
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+        {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+        <div className="container mx-auto flex items-center justify-between h-14">
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/projects" className="flex items-center gap-2">
+              <ArrowLeft className="w-4 h-4" />
+              <span className="hidden sm:inline">Tillbaka</span>
+            </Link>
+          </Button>
+        
+          <div className="w-8" />
+        </div>
+      </nav>
+      {/* 🟦 HERO FEATURE SECTION */}
       {/* 🟦 HERO FEATURE SECTION */}
       <section className="relative isolate overflow-hidden bg-background px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
         {/* Decorative background */}
