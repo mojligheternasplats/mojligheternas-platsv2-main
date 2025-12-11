@@ -12,7 +12,7 @@ function Logo() {
   return (
     <Link href="/" className="flex items-center space-x-2">
        <span className="h-15 w-8">
-        <img src="/image/mplog.png" alt="Logo" className="h-full w-full" />
+        <img src="/images/mplog.png" alt="Logo" className="h-full w-full" />
        </span>
       <span className="font-bold text-xl font-headline text-foreground">{t('common.appName')}</span>
     </Link>

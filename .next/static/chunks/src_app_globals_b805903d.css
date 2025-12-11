@@ -802,6 +802,10 @@ body {
   height: 100svh;
 }
 
+.h-0\.5 {
+  height: .125rem;
+}
+
 .max-h-96 {
   max-height: 24rem;
 }
@@ -924,6 +928,10 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+.w-52 {
+  width: 13rem;
 }
 
 .min-w-0 {

@@ -2,7 +2,7 @@ import { getProjects } from '@/lib/api/projects';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 
 import HeroSection from '@/components/projects/herosection';
-import {ImageCard} from '@/components/projects/ImageCard'
+
 
 export default async function ProjectsPage() {
   const projects = await getProjects();
@@ -11,9 +11,9 @@ export default async function ProjectsPage() {
   ).slice(0, 24);
   return (
     <div>
-      <HeroSection type='local'/>
+      <HeroSection type='local' backgroundImage='/images/localProjectbild.PNG'/>
         <div className="container py-12 md:py-16">
-
+       
 
       {localProjects.length ? (
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-10">

@@ -13,7 +13,7 @@ export default async function EuProjectsPage() {
 
   return (
     <div>
-       <HeroSection type='eu'/>
+       <HeroSection type='eu' backgroundImage='/images/EuProjectbild.PNG'/>
 
       <div className="container py-12 md:py-16">
         {projects.length ? (

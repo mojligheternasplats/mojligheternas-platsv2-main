@@ -48,7 +48,7 @@ function Logo() {
   return (
     <Link href="/" className="flex items-center space-x-2">
       <img
-        src="/image/mplog.png"
+        src="/images/mplog.png"
         alt="Logo"
         className="h-9 w-12 object-cover"
       />

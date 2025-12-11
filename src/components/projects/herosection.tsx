@@ -6,9 +6,10 @@ import { useTranslation } from '@/hooks/useTranslation';
 
 type HeroSectionProps = {
   type: 'local' | 'eu';
+  backgroundImage:string
 };
 
-export default function HeroSection({ type }: HeroSectionProps) {
+export default function HeroSection({ type, backgroundImage }: HeroSectionProps) {
   const { t } = useTranslation();
 
   const keyPrefix =
@@ -18,6 +19,7 @@ export default function HeroSection({ type }: HeroSectionProps) {
     <PageHeader
       title={t(`${keyPrefix}.title`)}
       description={t(`${keyPrefix}.subtitle`)}
+      backgroundImage ={backgroundImage}
     />
   );
 }

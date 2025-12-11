@@ -13,7 +13,7 @@ export function PageHeader({
   title,
   description,
   backgroundImage,
-  fallbackImage = "/image/default-header.png",
+  fallbackImage = "/images/localProjectbild.PNG",
 }: PageHeaderProps) {
   const imageToUse = backgroundImage || fallbackImage;
 

@@ -11,7 +11,7 @@
     "leadership": "Leadership Training",
     "dreamAcademy": "Dream Academy",
     "summerCamp": "Summer Camp",
-    "autumnCamp": "Autumn Camp",
+    "autumnCamp": "holiday activities",
     "eveningOpen": "Evening Open",
     "euCollaborations": "EU Collaborations", 
     "localProjects": "Local Projects",
@@ -38,24 +38,25 @@
     "title": "Contact Us",
     "subtitle": "We’re here to help you."
   },
-  "about": {
-    "title": "About Us",
-    "subtitle": "Building intelligent data systems that empower the future.",
-    "intro": "DataFlow Architect is a modern research and engineering organization committed to transforming how the world designs and understands complex data systems. Since 2015, our mission has been to build reliable, scalable, and future-proof data architectures for organizations across industries.",
-    "imageAlt": "Team collaboration at DataFlow Architect",
-    "visionTitle": "Our Vision",
-    "visionText": "We envision a world where data flows effortlessly and securely, enabling smarter cities, sustainable industries, scientific breakthroughs, and impactful innovation.",
-    "whatWeDoTitle": "What We Do",
-    "whatWeDoIntro": "Our expertise is built around three core pillars:",
-    "researchTitle": "Fundamental Research",
-    "researchText": "We explore cutting-edge concepts in distributed systems, database theory, and large-scale data processing.",
-    "appliedTitle": "Applied Engineering",
-    "appliedText": "We collaborate with industry and public institutions to solve real challenges using practical, future-proof solutions.",
-    "educationTitle": "Education & Outreach",
-    "educationText": "We support talent development through workshops, camps, and programs that prepare the next generation of engineers.",
-    "quote": "“Our goal is not just to build systems, but to create clarity. We turn complex data into insights that matter.”",
-    "closing": "Our interdisciplinary team works at the frontier of innovation. Explore our work and join us in shaping the next era of data architecture."
-  },
+"about": {
+  "title": "About Us",
+  "subtitle": "Creating opportunities that empower young people and communities.",
+  "intro": "Möjligheternas Plats (Mplats) is a non-profit organization founded in 2013 by passionate community members in Sollentuna. From the very beginning, our mission has been to strengthen opportunities for young people in vulnerable areas, helping them build confidence, skills, and pathways toward long-term engagement in society. With support from partners such as Arvsfonden, we have been able to expand our reach and inspire more youth between the ages of 16–24 to take charge of their future.",
+  "imageAlt": "Young people collaborating at Mplats",
+  "visionTitle": "Our Vision",
+  "visionText": "We envision a society where every young person, regardless of background, has the chance to grow, lead, and contribute. Through integration, creativity, and community-driven initiatives, we aim to build a stronger, more inclusive future.",
+  "whatWeDoTitle": "What We Do",
+  "whatWeDoIntro": "Our work is centered around three key areas:",
+  "researchTitle": "Youth Development",
+  "researchText": "We design and run programs like Dream Academy that encourage leadership, entrepreneurship, and personal growth among young people.",
+  "appliedTitle": "Community Projects",
+  "appliedText": "We collaborate with local and international partners to deliver meaningful activities, from summer programs in Sollentuna to European initiatives like Future Narratives.",
+  "educationTitle": "Education & Empowerment",
+  "educationText": "We provide workshops, coaching, and outreach that help young people discover their strengths, broaden their networks, and prepare for education or employment.",
+  "quote": "“At Mplats, we believe opportunities are everywhere. Our role is to help young people find them, seize them, and create lasting change.”",
+  "closing": "Our team works passionately for integration and social development. Explore our projects and join us in shaping a future where possibilities are open to all."
+},
+
   "home": {
     "hero": {
       "title": "Creating <span class='text-primary'>safe spaces</span><br />where youth can <span class='text-accent'>grow</span>",
