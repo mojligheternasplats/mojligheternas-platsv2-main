@@ -10,21 +10,27 @@ import { Button } from "@/components/ui/button";
 import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 
 export default async function ProjectDetailPage({
-  params,
+    params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
-  const project = await getProjectBySlug(slug);
+  // ✅ Await params ONCE
+  const { slug } = await params;
 
+  const project = await getProjectBySlug(slug);
   if (!project) notFound();
 
   // Primary hero image
- const fallbackImage = (project as any).imageUrl ?? "/fallback.png";
-const headerImage = project.media?.[0]?.url
-  ? getMediaUrl(project.media[0].url)
+const fallbackImage = (project as any).imageUrl ?? "/fallback.png";
+
+const latestMedia = project.media?.length
+  ? project.media[project.media.length - 1]
+  : null;
+
+const headerImage = latestMedia?.url
+  ? getMediaUrl(latestMedia.url)
   : fallbackImage;
-    
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">

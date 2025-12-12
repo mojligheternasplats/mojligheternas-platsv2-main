@@ -10,13 +10,14 @@ import { Button } from "@/components/ui/button";
  import {ArrowLeft } from "lucide-react";
 
 export default async function ProjectDetailPage({
-  params,
+    params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
-  const project = await getProjectBySlug(slug);
+  // ✅ Await params ONCE
+  const { slug } = await params;
 
+  const project = await getProjectBySlug(slug);
   if (!project) notFound();
 
   // Primary hero image

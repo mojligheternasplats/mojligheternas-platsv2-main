@@ -1,14 +1,24 @@
 import Image from "next/image";
-import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { Card, CardContent } from "@/components/ui/card";
-import { getMediaClient } from "@/lib/api/media"; // ✅ use your helper
+import { getMediaClient } from "@/lib/api/media";
+
+type MediaItem = {
+  id: string;
+  url: string;
+  mediaType: "IMAGE" | "VIDEO";
+  altText?: string | null;
+  createdAt: string;
+};
 
 export default async function MediaPage() {
-  // ✅ Fetch via client helper
-  const mediaItems = await getMediaClient();
+  const mediaItems: MediaItem[] = await getMediaClient();
 
-  console.log("📸 Media Gallery (Client Fetch):", mediaItems);
+  const sortedMedia = [...mediaItems].sort(
+    (a, b) =>
+      new Date(b.createdAt).getTime() -
+      new Date(a.createdAt).getTime()
+  );
 
   return (
     <div>
@@ -18,56 +28,61 @@ export default async function MediaPage() {
       />
 
       <div className="container py-16 md:py-24">
-        {Array.isArray(mediaItems) && mediaItems.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {mediaItems.map((item) => (
-              <Card
-                key={item.id}
-                className="overflow-hidden group rounded-xl shadow-sm"
-              >
-                <CardContent className="p-0">
-                  {/* IMAGE */}
-                  {item.mediaType === "IMAGE" && (
-                    <div className="aspect-[4/3]">
-                      <Image
-                        src={
-                          item.url.startsWith("http")
-                            ? item.url
-                            : `http://localhost:3000${item.url}`
-                        }
-                        alt={item.altText ?? "Gallery image"}
-                        width={400}
-                        height={300}
-                        className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
+        {sortedMedia.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {sortedMedia.map((item, index) => {
+              const shape =
+                index % 3 === 0
+                  ? "aspect-[4/3]"
+                  : index % 3 === 1
+                  ? "aspect-[3/4]"
+                  : "aspect-square";
 
-                  {/* VIDEO */}
-                  {item.mediaType === "VIDEO" && (
-                    <div className="aspect-[4/3]">
-                      <video controls className="w-full h-full object-cover">
-                        <source
-                          src={
-                            item.url.startsWith("http")
-                              ? item.url
-                              : `http://localhost:3000${item.url}`
-                          }
-                          type="video/mp4"
+              return (
+                <Card
+                  key={item.id}
+                  className="border-0 bg-transparent shadow-none"
+                >
+                  <CardContent className="p-0 bg-transparent">
+                    {/* IMAGE */}
+                    {item.mediaType === "IMAGE" && (
+                      <div
+                        className={`relative ${shape} overflow-hidden rounded-2xl group`}
+                      >
+                        <Image
+                          src={item.url}
+                          alt={item.altText || "Gallery image"}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
                         />
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                  )}
-                </CardContent>
-              
-              </Card>
-            ))}
+                      </div>
+                    )}
+
+                    {/* VIDEO */}
+                    {item.mediaType === "VIDEO" && (
+                      <div
+                        className={`relative ${shape} overflow-hidden rounded-2xl`}
+                      >
+                        <video
+                          controls
+                          className="w-full h-full object-cover"
+                        >
+                          <source src={item.url} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         ) : (
-          <div className="text-center py-20">
-            <p className="text-lg text-muted-foreground">No media items found.</p>
+          <div className="text-center py-24">
+            <p className="text-lg text-muted-foreground">
+              No media items found.
+            </p>
           </div>
         )}
       </div>

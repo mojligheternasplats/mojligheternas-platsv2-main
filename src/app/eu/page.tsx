@@ -1,15 +1,13 @@
 // src/app/eu/page.tsx
 import { getEUProjects } from '@/lib/api/projects';
-import { PageHeader } from '@/components/shared/PageHeader'; // updated import path
+
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import HeroSection from '@/components/projects/herosection';
 
 export default async function EuProjectsPage() {
   const projects = await getEUProjects();
   // Optional: choose header image from first EU project
-  const headerImage = projects?.[0]?.media?.[0]?.url
-    ? projects[0].media[0].url
-    : null;
+
 
   return (
     <div>

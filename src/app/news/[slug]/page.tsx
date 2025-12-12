@@ -1,33 +1,47 @@
 import { getNewsBySlug } from "@/lib/api/news";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { getMediaUrl } from "@/lib/getMediaUrl";
 
-export default async function NewsDetailPage({ params }: { params: { slug: string } }) {
-  let slug = await params?.slug;
+export default async function NewsDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // ✅ Await params ONCE
+  const { slug } = await params;
 
-  // Handle + signs
-  if (slug.includes("+")) {
-    slug = slug.replace(/\+/g, "plus");
-    redirect(`/news/${slug}`);
-  }
+  const decodedSlug = decodeURIComponent(
+    slug.replace(/\+/g, " ")
+  );
 
-  const article = await getNewsBySlug(slug);
+  const article = await getNewsBySlug(decodedSlug);
   if (!article) notFound();
 
-  const image = article.media?.find((m) => m.mediaType === "IMAGE") ?? null;
-  const imageUrl = getMediaUrl(image?.url);
+  // ...
+
+
+ 
+
+  // ✅ Get latest IMAGE (same pattern as projects / gallery)
+  const images = article.media?.filter(
+    (m) => m.mediaType === "IMAGE"
+  );
+
+  const image = images?.[images.length - 1] ?? null;
+  const imageUrl = image ? getMediaUrl(image.url) : null;
 
   return (
     <div className="min-h-screen bg-background">
-
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b">
         <div className="container mx-auto flex items-center justify-between h-14">
           <ButtonBack />
-          <span className="hidden sm:block text-sm font-semibold">Möjligheternas Plats</span>
+          <span className="hidden sm:block text-sm font-semibold">
+            Möjligheternas Plats
+          </span>
           <div className="w-8" />
         </div>
       </nav>
@@ -35,7 +49,6 @@ export default async function NewsDetailPage({ params }: { params: { slug: strin
       {/* Hero */}
       <section className="py-10 md:py-16 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
         <div className="container max-w-3xl mx-auto space-y-6">
-
           {/* Title */}
           <header className="space-y-4">
             <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground">
@@ -50,8 +63,8 @@ export default async function NewsDetailPage({ params }: { params: { slug: strin
                 src={imageUrl}
                 alt={article.title}
                 fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
                 priority
+                className="object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
           )}
@@ -61,7 +74,6 @@ export default async function NewsDetailPage({ params }: { params: { slug: strin
       {/* Content */}
       <section className="py-12 md:py-16">
         <div className="container max-w-3xl mx-auto">
-
           <article
             className="
               prose prose-base
@@ -75,22 +87,16 @@ export default async function NewsDetailPage({ params }: { params: { slug: strin
 
               prose-headings:font-headline
               prose-headings:font-bold
-              prose-headings:text-2xl
-              md:prose-headings:text-3xl
-              lg:prose-headings:text-4xl
 
               prose-p:text-foreground
-              prose-p:leading-relaxed
-
-              prose-ul:mt-4
-              prose-li:my-1
-
               prose-strong:text-foreground
               prose-strong:font-semibold
 
               prose-img:rounded-xl
             "
-            dangerouslySetInnerHTML={{ __html: article.content ?? "" }}
+            dangerouslySetInnerHTML={{
+              __html: article.content ?? "",
+            }}
           />
         </div>
       </section>
@@ -98,7 +104,7 @@ export default async function NewsDetailPage({ params }: { params: { slug: strin
   );
 }
 
-/* Back Button Component */
+/* Back Button */
 function ButtonBack() {
   return (
     <Link

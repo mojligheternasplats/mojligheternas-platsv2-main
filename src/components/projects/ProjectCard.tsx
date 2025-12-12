@@ -21,7 +21,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const finalImage =
   coverImage ||
   project.media?.[0]?.url ||
-  "/image/default-header.png";
+  "/images/default-header.png";
 
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">

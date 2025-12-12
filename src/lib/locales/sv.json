@@ -24,23 +24,23 @@
         "contact": "Kontakt",
         "engage": "Engagera dig"
     },
-  "about": {
-  "title": "About Us",
-  "subtitle": "Creating opportunities that empower young people and communities.",
-  "intro": "Möjligheternas Plats (Mplats) is a non-profit organization founded in 2013 by passionate community members in Sollentuna. From the very beginning, our mission has been to strengthen opportunities for young people in vulnerable areas, helping them build confidence, skills, and pathways toward long-term engagement in society. With support from partners such as Arvsfonden, we have been able to expand our reach and inspire more youth between the ages of 16–24 to take charge of their future.",
-  "imageAlt": "Young people collaborating at Mplats",
-  "visionTitle": "Our Vision",
-  "visionText": "We envision a society where every young person, regardless of background, has the chance to grow, lead, and contribute. Through integration, creativity, and community-driven initiatives, we aim to build a stronger, more inclusive future.",
-  "whatWeDoTitle": "What We Do",
-  "whatWeDoIntro": "Our work is centered around three key areas:",
-  "researchTitle": "Youth Development",
-  "researchText": "We design and run programs like Dream Academy that encourage leadership, entrepreneurship, and personal growth among young people.",
-  "appliedTitle": "Community Projects",
-  "appliedText": "We collaborate with local and international partners to deliver meaningful activities, from summer programs in Sollentuna to European initiatives like Future Narratives.",
-  "educationTitle": "Education & Empowerment",
-  "educationText": "We provide workshops, coaching, and outreach that help young people discover their strengths, broaden their networks, and prepare for education or employment.",
-  "quote": "“At Mplats, we believe opportunities are everywhere. Our role is to help young people find them, seize them, and create lasting change.”",
-  "closing": "Our team works passionately for integration and social development. Explore our projects and join us in shaping a future where possibilities are open to all."
+"about": {
+  "title": "Om oss",
+  "subtitle": "Vi skapar möjligheter som stärker unga människor och lokalsamhällen.",
+  "intro": "Möjligheternas Plats (Mplats) är en ideell organisation som grundades 2013 av engagerade samhällsmedlemmar i Sollentuna. Redan från start har vårt uppdrag varit att stärka ungas möjligheter i socioekonomiskt utsatta områden, genom att hjälpa dem bygga självförtroende, kompetens och långsiktigt engagemang i samhället. Med stöd från samarbetspartners som Arvsfonden har vi kunnat bredda vår verksamhet och inspirera fler unga mellan 16–24 år att ta kontroll över sin framtid.",
+  "imageAlt": "Unga människor som samarbetar på Möjligheternas Plats",
+  "visionTitle": "Vår vision",
+  "visionText": "Vi ser ett samhälle där varje ung person, oavsett bakgrund, får möjlighet att växa, ta ledarskap och bidra. Genom integration, kreativitet och samhällsdrivna initiativ vill vi bygga en starkare och mer inkluderande framtid.",
+  "whatWeDoTitle": "Vad vi gör",
+  "whatWeDoIntro": "Vårt arbete fokuserar på tre centrala områden:",
+  "researchTitle": "Ungas utveckling",
+  "researchText": "Vi utvecklar och driver program som Dream Academy, med fokus på ledarskap, entreprenörskap och personlig utveckling för unga.",
+  "appliedTitle": "Samhällsprojekt",
+  "appliedText": "Vi samarbetar med lokala och internationella aktörer för att skapa meningsfulla aktiviteter – från sommarverksamheter i Sollentuna till europeiska initiativ som Future Narratives.",
+  "educationTitle": "Utbildning & egenmakt",
+  "educationText": "Vi erbjuder workshops, coaching och uppsökande verksamhet som hjälper unga att upptäcka sina styrkor, bygga nätverk och förbereda sig för studier eller arbetsliv.",
+  "quote": "”På Mplats tror vi att möjligheter finns överallt. Vår roll är att hjälpa unga att hitta dem, ta vara på dem och skapa varaktig förändring.”",
+  "closing": "Vårt team arbetar med passion för integration och social utveckling. Utforska våra projekt och var med och forma en framtid där möjligheterna är öppna för alla."
 },
 
    "contact": {

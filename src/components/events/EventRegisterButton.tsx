@@ -11,6 +11,7 @@ export default function EventRegister({ eventId }: { eventId: string }) {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+     
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

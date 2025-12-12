@@ -612,6 +612,10 @@ body {
   margin-top: 3rem;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .mt-2 {
   margin-top: .5rem;
 }
@@ -657,10 +661,6 @@ body {
   display: inline-block;
 }
 
-.inline {
-  display: inline;
-}
-
 .flex {
   display: flex;
 }
@@ -679,6 +679,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+.aspect-\[3\/4\] {
+  aspect-ratio: 3 / 4;
 }
 
 .aspect-\[4\/3\] {
@@ -780,6 +784,10 @@ body {
 
 .h-\[1px\] {
   height: 1px;
+}
+
+.h-\[420px\] {
+  height: 420px;
 }
 
 .h-\[var\(--radix-select-trigger-height\)\] {
@@ -972,6 +980,10 @@ body {
 
 .max-w-6xl {
   max-width: 72rem;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
 }
 
 .max-w-\[--skeleton-width\] {
@@ -1168,6 +1180,10 @@ body {
   gap: 2.5rem;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
 .gap-16 {
   gap: 4rem;
 }
@@ -1334,6 +1350,10 @@ body {
   border-width: 1px;
 }
 
+.border-0 {
+  border-width: 0;
+}
+
 .border-2 {
   border-width: 2px;
 }
@@ -1449,10 +1469,6 @@ body {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
 .bg-gradient-to-br {
@@ -1644,11 +1660,6 @@ body {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
 }
 
 .pb-3 {
@@ -3109,10 +3120,6 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .sm\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -3236,10 +3243,6 @@ body {
 
   .md\:grid-cols-\[1fr_3fr\] {
     grid-template-columns: 1fr 3fr;
-  }
-
-  .md\:gap-6 {
-    gap: 1.5rem;
   }
 
   .md\:rounded-l-xl {

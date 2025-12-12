@@ -54,22 +54,29 @@ export interface Article {
 export interface Event {
   id: string;
   slug?: string | null;
-  startDate: string;
-  endDate?: string | null;
-  location?: string | null;
-  isPublished: boolean;
-  createdAt: string;
-  updatedAt: string;
-  createdById?: string | null;
-  imageHint: string;
+
   title: string;
   description?: string | null;
   content?: string | null;
   language: string;
 
+  startDate: string;
+  endDate?: string | null;
+  location?: string | null;
+
+  isPublished: boolean;
+  openForRegistration: boolean;
+
+  createdAt: string;
+  updatedAt: string;
+  createdById?: string | null;
+
+  imageHint?: string | null;
+
   creator?: User | null;
   media: Media[];
 }
+
 
 // ---------- PROJECT ----------
 
