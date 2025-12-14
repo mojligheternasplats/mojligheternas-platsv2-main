@@ -11,23 +11,23 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 ;
-function PageHeader({ title, description, backgroundImage, fallbackImage = "/image/default-header.png" }) {
+function PageHeader({ title, description, backgroundImage, fallbackImage = "/images/localProjectbild.PNG" }) {
     const imageToUse = backgroundImage || fallbackImage;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
         className: `
-        relative py-20 md:py-28 text-center
-        ${imageToUse ? "bg-cover bg-center bg-no-repeat" : "bg-secondary"}
-      `,
+    relative py-20 md:py-28 text-center
+    ${imageToUse ? "bg-cover bg-center bg-no-repeat" : "bg-secondary"}
+  `,
         style: imageToUse ? {
             backgroundImage: `url(${imageToUse})`
         } : undefined,
         children: [
             imageToUse && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 bg-black/50 backdrop-blur-[1px]"
+                className: "absolute inset-0 full bg-black/50 backdrop-blur-[1px]"
             }, void 0, false, {
                 fileName: "[project]/src/components/shared/PageHeader.tsx",
-                lineNumber: 27,
-                columnNumber: 22
+                lineNumber: 29,
+                columnNumber: 18
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "relative container",
@@ -39,27 +39,27 @@ function PageHeader({ title, description, backgroundImage, fallbackImage = "/ima
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/components/shared/PageHeader.tsx",
-                        lineNumber: 31,
-                        columnNumber: 9
+                        lineNumber: 33,
+                        columnNumber: 5
                     }, this),
                     description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "mt-4 text-lg text-white/90 max-w-3xl mx-auto drop-shadow",
                         children: description
                     }, void 0, false, {
                         fileName: "[project]/src/components/shared/PageHeader.tsx",
-                        lineNumber: 36,
-                        columnNumber: 11
+                        lineNumber: 38,
+                        columnNumber: 7
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/shared/PageHeader.tsx",
-                lineNumber: 29,
-                columnNumber: 7
+                lineNumber: 32,
+                columnNumber: 3
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/shared/PageHeader.tsx",
-        lineNumber: 20,
+        lineNumber: 21,
         columnNumber: 5
     }, this);
 }
@@ -2871,7 +2871,7 @@ const _routercontextsharedruntime = __turbopack_context__.r("[project]/node_modu
 const _imageloader = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/node_modules/next/dist/shared/lib/image-loader.js [app-ssr] (ecmascript)"));
 const _usemergedref = __turbopack_context__.r("[project]/node_modules/next/dist/client/use-merged-ref.js [app-ssr] (ecmascript)");
 // This is replaced by webpack define plugin
-const configEnv = ("TURBOPACK compile-time value", JSON.parse('{"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":false,"domains":[],"remotePatterns":[{"protocol":"https","hostname":"placehold.co","port":"","pathname":"/**"},{"protocol":"https","hostname":"images.unsplash.com","port":"","pathname":"/**"},{"protocol":"https","hostname":"picsum.photos","port":"","pathname":"/**"},{"protocol":"http","hostname":"localhost","port":"3000","pathname":"/uploads/**"},{"protocol":"https","hostname":"res.cloudinary.com","port":"","pathname":"/**"}]}'));
+const configEnv = ("TURBOPACK compile-time value", JSON.parse('{"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":false,"domains":[],"remotePatterns":[{"protocol":"https","hostname":"placehold.co","pathname":"/**"},{"protocol":"https","hostname":"images.unsplash.com","pathname":"/**"},{"protocol":"https","hostname":"picsum.photos","pathname":"/**"},{"protocol":"https","hostname":"res.cloudinary.com","pathname":"/**"},{"protocol":"https","hostname":"api.mplats.se","pathname":"/**"},{"protocol":"http","hostname":"localhost","port":"8080","pathname":"/uploads/**"}]}'));
 if (typeof window === 'undefined') {
     ;
     globalThis.__NEXT_IMAGE_IMPORTED = true;

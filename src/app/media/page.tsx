@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PageHeader } from "@/components/shared/PageHeader";
+import  MediaHeroSection  from "@/components/media/MediaHeroSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { getMediaClient } from "@/lib/api/media";
 
@@ -22,10 +22,7 @@ export default async function MediaPage() {
 
   return (
     <div>
-      <PageHeader
-        title="Media Gallery"
-        description="Explore images and videos from our events, projects and activities."
-      />
+     <MediaHeroSection/>
 
       <div className="container py-16 md:py-24">
         {sortedMedia.length > 0 ? (

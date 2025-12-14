@@ -1,5 +1,10 @@
 {
   "/about/page": "app/about/page.js",
-  "/events/[slug]/page": "app/events/[slug]/page.js",
-  "/events/page": "app/events/page.js"
+  "/contact/page": "app/contact/page.js",
+  "/engage/page": "app/engage/page.js",
+  "/eu/page": "app/eu/page.js",
+  "/events/page": "app/events/page.js",
+  "/media/page": "app/media/page.js",
+  "/page": "app/page.js",
+  "/partners/page": "app/partners/page.js"
 }

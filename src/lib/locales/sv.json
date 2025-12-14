@@ -42,7 +42,14 @@
   "quote": "”På Mplats tror vi att möjligheter finns överallt. Vår roll är att hjälpa unga att hitta dem, ta vara på dem och skapa varaktig förändring.”",
   "closing": "Vårt team arbetar med passion för integration och social utveckling. Utforska våra projekt och var med och forma en framtid där möjligheterna är öppna för alla."
 },
-
+ "event": {
+      "title": "Bygg din framtid",
+      "description": "För unga 16–24: våra event erbjuder utbildning, coaching och CV‑träning som öppnar vägar till arbetsmarknaden."
+    },
+"mediaGallery": {
+  "title": "Media Galleri",
+  "description": "Utforska bilder och videor från våra evenemang, projekt och aktiviteter."
+},
    "contact": {
      "title": "Kontakt",
     "subtitle": "Vi finns här för att hjälpa dig."
@@ -51,6 +58,7 @@
         "title": "Våra samarbetspartners",
         "description": "Vi är stolta över att samarbeta med ledande organisationer och institutioner från hela världen."
     },
+
     "footer": {
         "explore": "Utforska",
         "allRightsReserved": "Alla rättigheter förbehållna",

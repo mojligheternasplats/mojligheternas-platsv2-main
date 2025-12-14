@@ -55,7 +55,15 @@
   "educationText": "We provide workshops, coaching, and outreach that help young people discover their strengths, broaden their networks, and prepare for education or employment.",
   "quote": "“At Mplats, we believe opportunities are everywhere. Our role is to help young people find them, seize them, and create lasting change.”",
   "closing": "Our team works passionately for integration and social development. Explore our projects and join us in shaping a future where possibilities are open to all."
+}, "event": {
+      "title": "Build Your Future",
+      "description": "For youth aged 16–24: our events provide training, coaching, and CV workshops to open pathways into employment."
+    },
+    "mediaGallery": {
+  "title": "Media Gallery",
+  "description": "Explore images and videos from our events, projects and activities."
 },
+
 
   "home": {
     "hero": {
@@ -100,11 +108,7 @@
       "title": "Media Gallery",
       "viewAll": "View full gallery"
     },
-    "events": {
-      "title": "Upcoming Events",
-      "subtitle": "Join us for our upcoming workshops, seminars, and camps.",
-      "viewAll": "View All Events"
-    },
+ 
  "cta": {
       "title": "Contact Us",
       "description": "We’d love to hear from you. Fill out the form below.",
