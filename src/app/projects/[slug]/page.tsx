@@ -6,11 +6,11 @@ import Image from "next/image";
 import { ProjectContent } from "@/components/projects/ProjectContent";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
- import {ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 
 export default async function ProjectDetailPage({
-    params,
+  params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
@@ -21,20 +21,20 @@ export default async function ProjectDetailPage({
   if (!project) notFound();
 
   // Primary hero image
-const fallbackImage = (project as any).imageUrl ?? "/fallback.png";
+  const fallbackImage = (project as any).imageUrl ?? "/fallback.png";
 
-const latestMedia = project.media?.length
-  ? project.media[project.media.length - 1]
-  : null;
+  const latestMedia = project.media?.length
+    ? project.media[project.media.length - 1]
+    : null;
 
-const headerImage = latestMedia?.url
-  ? getMediaUrl(latestMedia.url)
-  : fallbackImage;
+  const headerImage = latestMedia?.url
+    ? getMediaUrl(latestMedia.url)
+    : fallbackImage;
 
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-       {/* Navigation */}
+      {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
         <div className="container mx-auto flex items-center justify-between h-14">
           <Button variant="ghost" size="sm" asChild>
@@ -43,7 +43,7 @@ const headerImage = latestMedia?.url
               <span className="hidden sm:inline">Tillbaka</span>
             </Link>
           </Button>
-        
+
           <div className="w-8" />
         </div>
       </nav>
@@ -77,7 +77,17 @@ const headerImage = latestMedia?.url
             <div className="lg:pr-4">
               <div className="lg:max-w-lg">
                 <p className="text-base font-semibold text-primary">Projekt</p>
-                <h1 className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                <h1 className=" mt-2 
+      text-2xl
+      sm:text-3xl
+      md:text-4xl
+      lg:text-4xl
+      xl:text-5xl
+      font-bold
+      tracking-tight
+      text-foreground
+      leading-tight
+    ">
                   {project.title}
                 </h1>
                 {project.description && (
@@ -92,14 +102,14 @@ const headerImage = latestMedia?.url
           {/* Sticky image column */}
           {headerImage && (
             <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-             <Image
-     src={`${headerImage}?w=800&h=600&f_auto&q_auto`}
-    alt={project.title}
-     width={800}
+              <Image
+                src={`${headerImage}?w=800&h=600&f_auto&q_auto`}
+                alt={project.title}
+                width={800}
                 height={600}
                 className="w-full max-w-none rounded-xl bg-card shadow-xl ring-1 ring-border"
-    priority
-  />
+                priority
+              />
             </div>
           )}
 
@@ -152,7 +162,7 @@ async function RelatedProjects({ currentSlug }: { currentSlug: string }) {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.slice(0, 3).map((p) => {
             const img = p.media?.[0]?.url ? getMediaUrl(p.media[0].url) : null;
-            
+
 
             return (
               <a

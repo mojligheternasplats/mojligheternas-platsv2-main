@@ -568,6 +568,10 @@ body {
   margin-bottom: .5rem;
 }
 
+.mb-3 {
+  margin-bottom: .75rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -586,6 +590,10 @@ body {
 
 .ml-2 {
   margin-left: .5rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
 }
 
 .ml-auto {
@@ -630,14 +638,6 @@ body {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.mb-3 {
-  margin-bottom: .75rem;
-}
-
-.ml-6 {
-  margin-left: 1.5rem;
 }
 
 .line-clamp-2 {
@@ -2258,12 +2258,6 @@ body {
   border-radius: var(--radius);
 }
 
-.animate-slideUp {
-  opacity: 0;
-  animation: .7s ease-out forwards slideUp;
-  transform: translateY(20px);
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -3084,6 +3078,14 @@ body {
     margin-top: 1.5rem;
   }
 
+  .sm\:mt-3 {
+    margin-top: .75rem;
+  }
+
+  .sm\:ml-3 {
+    margin-left: .75rem;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -3150,18 +3152,23 @@ body {
     border-radius: var(--radius);
   }
 
-  .sm\:py-32 {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-
   .sm\:px-0 {
     padding-left: 0;
     padding-right: 0;
   }
 
+  .sm\:py-32 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
   .sm\:text-left {
     text-align: left;
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .sm\:text-4xl {
@@ -3179,18 +3186,13 @@ body {
     line-height: 1.5rem;
   }
 
-  .sm\:text-xl {
-    font-size: 1.25rem;
+  .sm\:text-lg {
+    font-size: 1.125rem;
     line-height: 1.75rem;
   }
 
-  .sm\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
-  .sm\:text-lg {
-    font-size: 1.125rem;
+  .sm\:text-xl {
+    font-size: 1.25rem;
     line-height: 1.75rem;
   }
 
@@ -3477,14 +3479,14 @@ body {
     padding-right: 1rem;
   }
 
-  .lg\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
