@@ -53,7 +53,7 @@ function Logo() {
         className="h-9 w-12 object-cover"
       />
       <span className="font-bold text-sm sm:text-base md:text-lg lg:text-xl text-primary font-headline">
-        {t("common.appName")}
+      Möjligheternas Plats
       </span>
     </Link>
   );

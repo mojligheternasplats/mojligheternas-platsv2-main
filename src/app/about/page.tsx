@@ -1,84 +1,78 @@
-"use client";
+
 
 import { PageHeader } from "@/components/shared/PageHeader";
 import Image from "next/image";
-import { useTranslation } from "@/hooks/useTranslation";
 
 export default function AboutPage() {
-  const { t } = useTranslation();
-  if (!t) return null;
-
   return (
     <>
-      {/* Hero / Header */}
-      <PageHeader
-        title={t("about.title")}
-        description={t("about.subtitle")}
-        backgroundImage="/images/omOssbild.PNG"
-      />
+    
+      {/* Two-column modern layout */}
+      <main className="container mx-auto px-4 py-16 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-      {/* Main Content */}
-      <main className="animate-fadeIn">
-        <div className="container py-16 md:py-24 space-y-24">
-          {/* Intro */}
-          <section className="max-w-4xl mx-auto prose lg:prose-xl animate-slideUp">
-            <p>{t("about.intro")}</p>
-
-            <div className="my-12 not-prose group">
-              <div className="overflow-hidden rounded-xl shadow-xl">
-                <Image
-                  src="/images/omOssbild2.PNG"
-                  alt={t("about.imageAlt")}
-                  width={800}
-                  height={500}
-                  className="rounded-lg w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  priority
-                />
-              </div>
+          {/* LEFT — Sticky Image */}
+          <div className="lg:sticky lg:top-24">
+            <div className="overflow-hidden rounded-2xl shadow-xl">
+              <Image
+                src="/images/omOssbild.PNG"
+                alt="Möjligheternas Plats – gemenskap och framtidstro"
+                width={900}
+                height={600}
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                priority
+              />
             </div>
-          </section>
+          </div>
 
-          {/* Vision Section */}
-          <section className="max-w-4xl mx-auto animate-slideUp delay-150">
-            <h2 className="text-3xl font-bold mb-4">{t("about.visionTitle")}</h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {t("about.visionText")}
-            </p>
-          </section>
+          {/* RIGHT — Scrollable Text */}
+          <div className="relative">
+            <div className="max-h-[70vh] overflow-y-auto pr-4 space-y-10 scrollbar-thin scrollbar-thumb-muted-foreground/20">
 
-          {/* What We Do Section */}
-          <section className="max-w-4xl mx-auto animate-slideUp delay-300">
-            <h2 className="text-3xl font-bold mb-4">{t("about.whatWeDoTitle")}</h2>
-            <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-              {t("about.whatWeDoIntro")}
-            </p>
+              {/* Intro */}
+              <section className="prose lg:prose-lg max-w-none">
+                <p>
+                  <strong>Möjligheternas Plats</strong> är en ideell organisation
+                  som sedan 2013 arbetar för att stärka ungas möjligheter att
+                  hitta sin plats i samhället. Vi startade i Sollentuna med en
+                  enkel men viktig idé: att unga behöver trygga sammanhang,
+                  vuxna som lyssnar och konkreta möjligheter att utvecklas.
+                </p>
 
-            <ul className="space-y-6">
-              <li className="p-6 rounded-xl bg-muted/40 backdrop-blur-sm border hover:bg-muted/60 transition">
-                <strong>{t("about.researchTitle")}</strong> — {t("about.researchText")}
-              </li>
-              <li className="p-6 rounded-xl bg-muted/40 backdrop-blur-sm border hover:bg-muted/60 transition">
-                <strong>{t("about.appliedTitle")}</strong> — {t("about.appliedText")}
-              </li>
-              <li className="p-6 rounded-xl bg-muted/40 backdrop-blur-sm border hover:bg-muted/60 transition">
-                <strong>{t("about.educationTitle")}</strong> — {t("about.educationText")}
-              </li>
-            </ul>
-          </section>
+                <p>
+                  Vårt arbete tar sin utgångspunkt i ungas verklighet. Vi möter
+                  dem där de befinner sig och bygger relationer över tid. Genom
+                  trygga mötesplatser, stödjande samtal och meningsfulla
+                  aktiviteter arbetar vi för att stärka självförtroende,
+                  ansvar och framtidstro hos unga i socioekonomiskt utsatta
+                  områden.
+                </p>
 
-          {/* Quote */}
-          <section className="max-w-4xl mx-auto animate-slideUp delay-500">
-            <blockquote className="p-8 rounded-xl bg-primary/5 border-l-4 border-primary text-xl italic">
-              {t("about.quote")}
-            </blockquote>
-          </section>
+                <p>
+                  I nära samarbete med kommuner och andra samhällsaktörer
+                  utvecklar vi verksamheter som svarar mot faktiska behov. Med
+                  stöd från bland annat Allmänna Arvsfonden har vi kunnat nå
+                  fler unga mellan 16–24 år och ge dem stöd i viktiga vägval
+                  kring studier, arbete och engagemang i samhället. För oss
+                  handlar det inte om kortsiktiga insatser, utan om långsiktigt
+                  arbete som gör skillnad på riktigt.
+                </p>
+              </section>
 
-          {/* Closing */}
-          <section className="max-w-4xl mx-auto animate-slideUp delay-700">
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {t("about.closing")}
-            </p>
-          </section>
+              {/* Vision */}
+              <section>
+                <h2 className="text-3xl font-bold mb-4">Vår vision</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Vi vill se ett samhälle där unga ges möjlighet att växa, ta
+                  ansvar och känna tillhörighet – oavsett bakgrund eller
+                  livssituation. Genom gemenskap, delaktighet och tillit vill
+                  vi bidra till ett mer inkluderande samhälle där unga inte
+                  lämnas utanför, utan blir en del av lösningen.
+                </p>
+              </section>
+
+            </div>
+          </div>
         </div>
       </main>
     </>

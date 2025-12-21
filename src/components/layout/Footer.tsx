@@ -14,7 +14,8 @@ function Logo() {
        <span className="h-15 w-8">
         <img src="/images/mplog.png" alt="Logo" className="h-full w-full" />
        </span>
-      <span className="font-bold text-xl font-headline text-foreground">{t('common.appName')}</span>
+      <span className="font-bold text-xl font-headline text-foreground">Möjligheternas Plats
+</span>
     </Link>
   );
 }
@@ -35,7 +36,7 @@ export function Footer() {
           <div className="md:col-span-4 lg:col-span-2">
             <Logo />
             <p className="mt-4 text-muted-foreground max-w-sm">
-              {t('common.appDescription')}
+            Möjligheternas Plats
             </p>
           <div className="mt-6 flex space-x-4">
   

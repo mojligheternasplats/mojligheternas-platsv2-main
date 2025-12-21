@@ -3,7 +3,8 @@ import { getProjectBySlug } from "@/lib/api/projects";
 import { notFound } from "next/navigation";
 import { getMediaUrl } from "@/lib/getMediaUrl";
 import Image from "next/image";
-import { TextWithGaps } from "@/components/TextWithGaps";
+
+import { ProjectContent } from "@/components/projects/ProjectContent";
 import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -102,7 +103,7 @@ const headerImage = project.media?.[0]?.url
           {/* Content column */}
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
-              {project.content && <TextWithGaps text={project.content} />}
+              {project.content && <ProjectContent content={project.content} />}
 
               {/* Divider line */}
               <div className="my-12 border-t border-border"></div>

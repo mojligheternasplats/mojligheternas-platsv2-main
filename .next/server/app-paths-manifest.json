@@ -1,7 +1,8 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/api/partners/route": "app/api/partners/route.js",
-  "/media/page": "app/media/page.js",
+  "/activities/[slug]/page": "app/activities/[slug]/page.js",
+  "/eu/[slug]/page": "app/eu/[slug]/page.js",
   "/page": "app/page.js",
-  "/partners/page": "app/partners/page.js"
+  "/projects/[slug]/page": "app/projects/[slug]/page.js",
+  "/projects/page": "app/projects/page.js"
 }
