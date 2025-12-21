@@ -3,6 +3,7 @@ import { getEUProjects } from '@/lib/api/projects';
 
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import HeroSection from '@/components/projects/herosection';
+import { url } from 'inspector';
 
 export default async function EuProjectsPage() {
   const projects = await getEUProjects();
@@ -11,7 +12,7 @@ export default async function EuProjectsPage() {
 
   return (
     <div>
-       <HeroSection type='eu' backgroundImage='/images/EuProjectbild.PNG'/>
+       <HeroSection type='eu' backgroundImage='/EuHeroImage.png'/>
 
       <div className="container py-12 md:py-16">
         {projects.length ? (

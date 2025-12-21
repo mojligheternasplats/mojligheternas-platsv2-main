@@ -9,8 +9,13 @@ type PartnerLogoProps = {
 
 export function PartnerLogo({ partner }: PartnerLogoProps) {
   return (
-    <Card className="p-6 flex justify-center items-center h-40 bg-card hover:bg-muted transition-colors duration-300">
-      <Link href={partner.website || '#'} target="_blank" rel="noopener noreferrer" className="h-full w-full relative">
+    <Card className="relative p-6 flex justify-center items-center h-40 bg-card hover:bg-muted transition-colors duration-300">
+      <Link
+        href={partner.website || '#'}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="h-full w-full relative"
+      >
         {partner.logoUrl ? (
           <>
             <Image
@@ -19,10 +24,8 @@ export function PartnerLogo({ partner }: PartnerLogoProps) {
               fill
               className="object-contain"
               sizes="(max-width: 768px) 40vw,
-         (max-width: 1200px) 25vw,
-         15vw"
-
-              data-ai-hint="company logo"
+                     (max-width: 1200px) 25vw,
+                     15vw"
             />
             <span className="sr-only">{partner.name}</span>
           </>

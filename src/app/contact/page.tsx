@@ -130,7 +130,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold">{t('home.cta.emailLabel')}</h3>
-                <p className="text-muted-foreground">hallo@mplats.se</p>
+                <p className="text-muted-foreground">abdulkadir@mojligheternasplats.com</p>
               </div>
             </div>
 
@@ -152,7 +152,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold">{t('home.cta.visitLabel')}</h3>
-                <p className="text-muted-foreground">Malmvägen 32, Sollentuna</p>
+                <p className="text-muted-foreground">Oppegårdsstråket 11B 191 60 Sollentuna</p>
+              
               </div>
             </div>
 

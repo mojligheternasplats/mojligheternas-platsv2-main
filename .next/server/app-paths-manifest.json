@@ -1,9 +1,6 @@
 {
-  "/about/page": "app/about/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/engage/page": "app/engage/page.js",
-  "/eu/page": "app/eu/page.js",
-  "/events/page": "app/events/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/partners/route": "app/api/partners/route.js",
   "/media/page": "app/media/page.js",
   "/page": "app/page.js",
   "/partners/page": "app/partners/page.js"

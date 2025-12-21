@@ -27,8 +27,9 @@ import {
   Target,
   Lightbulb,
 } from "lucide-react";
+
 import { formatDate } from "@/lib/utils";
-import type { Article, Event, Media } from "@/lib/definitions";
+import type { Article, Event, Media, Partner } from "@/lib/definitions";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useEffect, useState } from "react";
 import { getNewsClient } from "@/lib/api/news";
@@ -40,6 +41,7 @@ import { YouthTestimonial } from "@/lib/definitions";
 import { getTestimonialsClient } from "@/lib/api/testimonials";
 import { TestimonialCard } from "../components/testimonials/TestimonialCard";
 import MediaPreview from "@/components/MediaPreview";
+import PartnerPreviewSection from "@/components/PartnerPreviewSection";
 
 // ✨ Fade-in animation utility
 const fadeIn = "opacity-0 translate-y-8 animate-fade-in";
@@ -51,6 +53,7 @@ export default function Home() {
   const [mediaItems, setMediaItems] = useState<Media[]>([]);
   const [hero, setHero] = useState<any>(null);
   const [testimonials, setTestimonials] = useState<YouthTestimonial[]>([]);
+
 
   useEffect(() => {
     async function fetchData() {
@@ -68,59 +71,79 @@ export default function Home() {
 
       const testimonials = await getTestimonialsClient();
       setTestimonials(testimonials);
+   
+
     }
-    fetchData();
+    fetchData(); 
   }, []);
+
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <main className="flex-grow">
-        {/* ------------------------------ */}
+     
         {/* 🔥 HERO SECTION — ALIVE + MODERN */}
-        {/* ------------------------------ */}
-        <section className="relative flex items-center min-h-[80vh] md:min-h-screen overflow-hidden">
+      <section className="relative min-h-[80vh] md:min-h-screen flex items-center overflow-hidden">
+  {/* Background gradient */}
+  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 -z-20" />
 
-          {/* Background gradient (behind everything) */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 -z-20" />
+  {/* CONTENT WRAPPER */}
+  <div className="relative z-10 mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    
+    {/* LEFT — TEXT */}
+    <div className="text-center md:text-left">
+      <h1
+        className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight drop-shadow-xl mb-6"
+        dangerouslySetInnerHTML={{ __html: t("home.hero.title") }}
+      />
 
-          {/* Background image */}
-          <div className="absolute inset-0">
-            <Image
-              src={hero?.media?.[0]?.url || "/herofallbacke.jpg"}
-              alt="Hero background"
-              fill
-              className="object-cover opacity-60"
-              priority
-            />
-          </div>
+      <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto md:mx-0 leading-relaxed mb-8">
+        {t("home.hero.subtitle")}
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <Button
+          size="lg"
+          asChild
+          className="px-8 py-4 text-lg shadow-xl hover:scale-105 transition-transform"
+        >
+          <Link href="/projects">
+            {t("home.hero.exploreProjects")}
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </Button>
+
+        <Button
+          size="lg"
+          variant="outline"
+          asChild
+          className="px-8 py-4 text-lg border-primary hover:bg-primary hover:text-primary-foreground shadow-xl hover:scale-105 transition-transform"
+        >
+          <Link href="/contact">{t("home.hero.contactUs")}</Link>
+        </Button>
+      </div>
+    </div>
+
+    {/* RIGHT — IMAGE */}
+    <div className="relative w-full h-[320px] sm:h-[420px] md:h-[520px] rounded-2xl overflow-hidden shadow-2xl">
+      <Image
+        src={hero?.media?.[0]?.url || "/herofallbacke.jpg"}
+        alt="Hero image"
+        fill
+        priority
+        className="object-cover"
+      />
+
+      {/* Optional overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+    </div>
+  </div>
+
+  {/* Bottom fade */}
+  <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-background to-transparent z-0" />
+</section>
 
 
-          {/* Bottom fade */}
-          <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-background to-transparent z-0" />
-
-          {/* CONTENT */}
-          <div className="relative z-10 mx-auto px-6 max-w-6xl text-center">
-            <h1
-              className="text-4xl sm:text-5xl md:text-7xl font-extrabold drop-shadow-xl leading-tight mb-6"
-              dangerouslySetInnerHTML={{ __html: t('home.hero.title') }}
-            />
-            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-              {t('home.hero.subtitle')}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="px-8 py-4 text-lg shadow-xl hover:scale-105 transition-transform">
-                <Link href="/projects">{t("home.hero.exploreProjects")} <ArrowRight className="ml-2 h-5 w-5" /></Link>
-              </Button>
-
-              <Button size="lg" variant="outline" asChild className="px-8 py-4 text-lg border-primary hover:bg-primary hover:text-primary-foreground shadow-xl hover:scale-105 transition-transform">
-                <Link href="/contact">{t("home.hero.contactUs")}</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Inspiration Line Above Divider */}
         {/* Inspiration Line + Curved Divider */}
         <section className="relative w-full bg-background py-16 text-center overflow-hidden">
           {/* Animated Inspiration Text */}
@@ -232,6 +255,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+    <PartnerPreviewSection />
 
 
         {/* ------------------------------ */}

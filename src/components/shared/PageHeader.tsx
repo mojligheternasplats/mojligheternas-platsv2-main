@@ -21,7 +21,7 @@ export function PageHeader({
     <header
   className={`
     relative py-20 md:py-28 text-center
-    ${imageToUse ? "bg-cover bg-center bg-no-repeat" : "bg-secondary"}
+    ${imageToUse ? "bg-cover bg-center object-cover " : "bg-secondary"}
   `}
   style={imageToUse ? { backgroundImage: `url(${imageToUse})` } : undefined}
 >
