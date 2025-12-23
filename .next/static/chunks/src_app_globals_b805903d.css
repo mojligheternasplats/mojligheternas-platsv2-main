@@ -532,6 +532,11 @@ body {
   margin-bottom: 3rem;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .-ml-12 {
   margin-left: -3rem;
 }
@@ -703,6 +708,14 @@ body {
 
 .aspect-video {
   aspect-ratio: 16 / 9;
+}
+
+.aspect-\[4\/5\] {
+  aspect-ratio: 4 / 5;
+}
+
+.aspect-\[9\/16\] {
+  aspect-ratio: 9 / 16;
 }
 
 .size-4 {
@@ -1136,6 +1149,10 @@ body {
   scroll-snap-align: start;
 }
 
+.scroll-mt-20 {
+  scroll-margin-top: 5rem;
+}
+
 .list-disc {
   list-style-type: disc;
 }
@@ -1304,6 +1321,12 @@ body {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+.space-y-12 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(3rem * var(--tw-space-y-reverse));
+}
+
 .overflow-auto {
   overflow: auto;
 }
@@ -1364,6 +1387,10 @@ body {
   border-radius: .75rem;
 }
 
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1384,6 +1411,10 @@ body {
   border-bottom-width: 1px;
 }
 
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
 .border-l {
   border-left-width: 1px;
 }
@@ -1396,6 +1427,10 @@ body {
   border-top-width: 1px;
 }
 
+.border-t-2 {
+  border-top-width: 2px;
+}
+
 .border-dashed {
   border-style: dashed;
 }
@@ -1406,6 +1441,16 @@ body {
 
 .border-destructive {
   border-color: var(--destructive);
+}
+
+.border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
 .border-input {
@@ -1496,6 +1541,12 @@ body {
 .from-background {
   --tw-gradient-from: var(--background) var(--tw-gradient-from-position);
   --tw-gradient-to: #fff0 var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-black\/30 {
+  --tw-gradient-from: #0000004d var(--tw-gradient-from-position);
+  --tw-gradient-to: #0000 var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -1677,6 +1728,11 @@ body {
   padding-bottom: 1rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-3 {
   padding-bottom: .75rem;
 }
@@ -1691,6 +1747,10 @@ body {
 
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
 }
 
 .pl-8 {
@@ -1881,6 +1941,16 @@ body {
 
 .text-foreground {
   color: var(--foreground);
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
 .text-green-600 {
@@ -2298,6 +2368,31 @@ body {
 
 .placeholder\:text-muted-foreground::placeholder {
   color: var(--muted-foreground);
+}
+
+.before\:absolute:before {
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.before\:left-0:before {
+  content: var(--tw-content);
+  left: 0;
+}
+
+.before\:font-bold:before {
+  content: var(--tw-content);
+  font-weight: 700;
+}
+
+.before\:content-\[\'→\'\]:before {
+  --tw-content: "→";
+  content: var(--tw-content);
+}
+
+.before\:text-primary:before {
+  content: var(--tw-content);
+  color: var(--primary);
 }
 
 .after\:absolute:after {
@@ -3078,14 +3173,6 @@ body {
     margin-top: 1.5rem;
   }
 
-  .sm\:mt-3 {
-    margin-top: .75rem;
-  }
-
-  .sm\:ml-3 {
-    margin-left: .75rem;
-  }
-
   .sm\:block {
     display: block;
   }
@@ -3155,6 +3242,16 @@ body {
   .sm\:px-0 {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .sm\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .sm\:py-32 {
@@ -3475,6 +3572,11 @@ body {
     padding-right: 2rem;
   }
 
+  .lg\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   .lg\:pr-4 {
     padding-right: 1rem;
   }
@@ -3513,6 +3615,14 @@ body {
 
 .\[\&\:has\(\[role\=checkbox\]\)\]\:pr-0:has([role="checkbox"]) {
   padding-right: 0;
+}
+
+.\[\&\>\*\:first-child\]\:mt-0 > :first-child {
+  margin-top: 0;
+}
+
+.\[\&\>\*\:last-child\]\:mb-0 > :last-child {
+  margin-bottom: 0;
 }
 
 .\[\&\>button\]\:hidden > button {

@@ -18,7 +18,7 @@ export default async function EventDetailPage({
   const event = await getEventBySlug(slug);
   if (!event) notFound();
 
-     console.log(event)
+
   // ✅ Always get the LATEST image
   const images = event.media?.filter(
     (m) => m.mediaType === "IMAGE"
