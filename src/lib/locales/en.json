@@ -1,8 +1,8 @@
 {
   "common": {
-    "appName": "The Place of Possibilities",
-    "appDescription": "Engineering robust data pipelines and scalable systems for the future.",
-    "readMore": "Read More"
+    "appName": "Möjligheternas Plats",
+    "appDescription": "A safe and inclusive community hub where young people can grow, develop, and shape their future.",
+    "readMore": "Read more"
   },
   "nav": {
     "home": "Home",
@@ -11,22 +11,52 @@
     "leadership": "Leadership Training",
     "dreamAcademy": "Dream Academy",
     "summerCamp": "Summer Camp",
-    "autumnCamp": "holiday activities",
+    "autumnCamp": "Holiday Activities",
     "eveningOpen": "Evening Open",
-    "euCollaborations": "EU Collaborations", 
+    "euCollaborations": "EU Collaborations",
     "localProjects": "Local Projects",
-    "futureNarrative": "Future Narrative",
+    "futureNarrative": "Future Narratives",
     "news": "News",
     "events": "Events",
     "projects": "Projects",
     "partners": "Partners",
     "media": "Media",
     "contact": "Contact",
-    "engage": "Engage"
+    "engage": "Get Involved"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Creating opportunities that empower young people and strengthen communities.",
+    "intro": "Möjligheternas Plats (Mplats) is a non-profit organization founded in 2013 by engaged community members in Sollentuna. Since its founding, our mission has been to strengthen opportunities for young people in socioeconomically vulnerable areas by building confidence, skills, and long-term engagement in society. With support from partners such as the Swedish Inheritance Fund (Allmänna Arvsfonden), we have expanded our work and inspired more young people aged 16–24 to take charge of their future.",
+    "imageAlt": "Young people collaborating at Möjligheternas Plats",
+    "visionTitle": "Our Vision",
+    "visionText": "We envision a society where every young person, regardless of background, has the opportunity to grow, take leadership, and contribute. Through integration, creativity, and community-driven initiatives, we aim to build a stronger and more inclusive future.",
+    "whatWeDoTitle": "What We Do",
+    "whatWeDoIntro": "Our work focuses on three core areas:",
+    "researchTitle": "Youth Development",
+    "researchText": "We design and run programs such as Dream Academy, focusing on leadership, entrepreneurship, and personal development for young people.",
+    "appliedTitle": "Community Projects",
+    "appliedText": "We collaborate with local and international partners to create meaningful activities – from summer programs in Sollentuna to European initiatives such as Future Narratives.",
+    "educationTitle": "Education & Empowerment",
+    "educationText": "Through workshops, coaching, and outreach activities, we help young people discover their strengths, build networks, and prepare for further studies or employment.",
+    "quote": "“At Mplats, we believe opportunities exist everywhere. Our role is to help young people find them, seize them, and create lasting change.”",
+    "closing": "Our team works with passion for integration and social development. Explore our projects and join us in shaping a future where opportunities are open to all."
+  },
+  "event": {
+    "title": "Build Your Future",
+    "description": "For young people aged 16–24, our events offer training, coaching, and CV support that open pathways to education and employment."
+  },
+  "mediaGallery": {
+    "title": "Media Gallery",
+    "description": "Explore images and videos from our events, projects, and activities."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to help you."
   },
   "partners": {
     "title": "Our Partners",
-    "description": "We are proud to collaborate with leading organizations and institutions from around the world."
+    "description": "We are proud to collaborate with organizations and institutions that share our vision."
   },
   "footer": {
     "explore": "Explore",
@@ -34,51 +64,20 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service"
   },
-  "contact": {
-    "title": "Contact Us",
-    "subtitle": "We’re here to help you."
-  },
-"about": {
-  "title": "About Us",
-  "subtitle": "Creating opportunities that empower young people and communities.",
-  "intro": "Möjligheternas Plats (Mplats) is a non-profit organization founded in 2013 by passionate community members in Sollentuna. From the very beginning, our mission has been to strengthen opportunities for young people in vulnerable areas, helping them build confidence, skills, and pathways toward long-term engagement in society. With support from partners such as Arvsfonden, we have been able to expand our reach and inspire more youth between the ages of 16–24 to take charge of their future.",
-  "imageAlt": "Young people collaborating at Mplats",
-  "visionTitle": "Our Vision",
-  "visionText": "We envision a society where every young person, regardless of background, has the chance to grow, lead, and contribute. Through integration, creativity, and community-driven initiatives, we aim to build a stronger, more inclusive future.",
-  "whatWeDoTitle": "What We Do",
-  "whatWeDoIntro": "Our work is centered around three key areas:",
-  "researchTitle": "Youth Development",
-  "researchText": "We design and run programs like Dream Academy that encourage leadership, entrepreneurship, and personal growth among young people.",
-  "appliedTitle": "Community Projects",
-  "appliedText": "We collaborate with local and international partners to deliver meaningful activities, from summer programs in Sollentuna to European initiatives like Future Narratives.",
-  "educationTitle": "Education & Empowerment",
-  "educationText": "We provide workshops, coaching, and outreach that help young people discover their strengths, broaden their networks, and prepare for education or employment.",
-  "quote": "“At Mplats, we believe opportunities are everywhere. Our role is to help young people find them, seize them, and create lasting change.”",
-  "closing": "Our team works passionately for integration and social development. Explore our projects and join us in shaping a future where possibilities are open to all."
-}, "event": {
-      "title": "Build Your Future",
-      "description": "For youth aged 16–24: our events provide training, coaching, and CV workshops to open pathways into employment."
-    },
-    "mediaGallery": {
-  "title": "Media Gallery",
-  "description": "Explore images and videos from our events, projects and activities."
-},
-
-
   "home": {
     "hero": {
-      "title": "Creating <span class='text-primary'>safe spaces</span><br />where youth can <span class='text-accent'>grow</span>",
-      "subtitle": "We create community, build hope for the future, and help young people grow with safety, support, and opportunities.",
-      "exploreProjects": "Explore Projects",
-      "contactUs": "Contact Us"
+      "title": "Creating <span class='text-primary'>safe spaces</span><br />where young people can <span class='text-accent'>grow</span>",
+      "subtitle": "We build community, strengthen hope for the future, and support young people through safety, care, and opportunity.",
+      "exploreProjects": "Explore projects",
+      "contactUs": "Contact us"
     },
     "testimonialcard": {
       "title": {
         "part1": "What our ",
-        "part2": "youth ",
+        "part2": "young people ",
         "part3": "say"
       },
-      "description": "Hear what participants are saying about our programs."
+      "description": "Hear what participants say about our programs and activities."
     },
     "vision": {
       "title": {
@@ -88,7 +87,7 @@
       "subtitle": "We believe in the potential of every young person and work to create opportunities where everyone can find their path in life.",
       "card1": {
         "title": "Safety",
-        "description": "We create safe environments where young people can be themselves and dare to grow."
+        "description": "We create environments where young people feel safe and confident to be themselves."
       },
       "card2": {
         "title": "Community",
@@ -96,59 +95,65 @@
       },
       "card3": {
         "title": "Development",
-        "description": "We provide tools and support for personal development and faith in the future."
+        "description": "We provide tools and support for personal growth and belief in the future."
       }
     },
     "latestNews": {
       "title": "Latest News",
-      "subtitle": "Stay updated with our latest announcements and stories.",
-      "viewAll": "View All News"
+      "subtitle": "Stay up to date with our latest news and stories.",
+      "viewAll": "View all news"
     },
     "media": {
       "title": "Media Gallery",
       "viewAll": "View full gallery"
     },
- 
- "cta": {
+    "events": {
+      "title": "Upcoming Events",
+      "subtitle": "Join our upcoming workshops, seminars, and camps.",
+      "viewAll": "View all events"
+    },
+    "newshero": {
+      "title": "News & Updates",
+      "description": "Here we share the latest news, events, and stories from Möjligheternas Plats."
+    },
+    "cta": {
       "title": "Contact Us",
-      "description": "We’d love to hear from you. Fill out the form below.",
-      "formTitle": "Send a Message",
-      "name": "Your Name",
-      "email": "Your Email",
+      "description": "Have questions or want to get involved? We would love to hear from you.",
+      "formTitle": "Send a message",
+      "name": "Your name",
+      "email": "Your email address",
       "subject": "Subject",
       "message": "Message",
       "send": "Send",
       "sending": "Sending...",
       "success": "Your message has been sent!",
       "error": "Something went wrong. Please try again.",
-
       "infoTitle": "Contact Information",
       "emailLabel": "Email",
       "phoneLabel": "Phone",
-      "visitLabel": "Visit Us",
+      "visitLabel": "Visit us",
       "instagramLabel": "Instagram"
     }
   },
   "localProjects": {
     "hero": {
       "title": "<span class='block'>Strengthening <span class='text-primary'>local communities</span></span><span class='block'>through projects that <span class='text-accent'>create impact</span></span>",
-      "subtitle": "Explore our local programs that support young people, families, and neighborhoods through meaningful activities and community-driven initiatives.",
-      "exploreProjects": "Explore Local Projects",
-      "contactUs": "Get Involved"
+      "subtitle": "Explore our local initiatives that support young people, families, and neighborhoods through meaningful activities.",
+      "exploreProjects": "Explore local projects",
+      "contactUs": "Get involved"
     }
   },
   "euCollaborationsPage": {
     "hero": {
-      "title": "<span class='block'>Building <span class='text-primary'>European partnerships</span></span><span class='block'>that help youth <span class='text-accent'>grow and thrive</span></span>",
-      "subtitle": "We collaborate across Europe through Erasmus+, youth exchanges, leadership programs, and international development projects that create opportunities for young people.",
-      "exploreProjects": "Explore EU Programs",
-      "contactUs": "Partner With Us"
+      "title": "<span class='block'>Building <span class='text-primary'>European collaborations</span></span><span class='block'>that empower young people to <span class='text-accent'>grow and develop</span></span>",
+      "subtitle": "Through Erasmus+ and international projects, we create opportunities for young people to learn, grow, and connect across borders.",
+      "exploreProjects": "Explore EU projects",
+      "contactUs": "Partner with us"
     }
   },
   "mediaPreview": {
-  "title": "Media Gallery",
-  "description": "Explore images and videos from our events, workshops, and activities that capture the spirit of our work.",
-  "viewAll": "View Full Gallery"
-}
-
+    "title": "Media Gallery",
+    "description": "Images and videos from our events, workshops, and activities that capture the spirit of our work.",
+    "viewAll": "View full gallery"
+  }
 }

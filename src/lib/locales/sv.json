@@ -1,121 +1,124 @@
 {
-    "common": {
-        "appName": "Möjligheternas Plats",
-        "appDescription": "Konstruerar robusta datapipelines och skalbara system för framtiden.",
-        "readMore": "Läs mer"
-    },
-    "nav": {
-        "home": "Hem",
-        "about": "Om oss",
-        "activities": "Verksamhet",
-        "leadership": "Ledarskapsutbildning",
-        "dreamAcademy": "Dreamacademy",
-        "summerCamp": "Summercamp",
-        "autumnCamp": "lovaktiviteter",
-        "eveningOpen": "Kvällsöppet",
-        "euCollaborations": "EU-samarbeten",
-         "localProjects": "Lokala projekt",
-        "futureNarrative": "Future Narrative",
-        "news": "Nyheter",
-        "events": "Evenemang",
-        "projects": "Projekt",
-        "partners": "Partners",
-        "media": "Media",
-        "contact": "Kontakt",
-        "engage": "Engagera dig"
-    },
-"about": {
-  "title": "Om oss",
-  "subtitle": "Vi skapar möjligheter som stärker unga människor och lokalsamhällen.",
-  "intro": "Möjligheternas Plats (Mplats) är en ideell organisation som grundades 2013 av engagerade samhällsmedlemmar i Sollentuna. Redan från start har vårt uppdrag varit att stärka ungas möjligheter i socioekonomiskt utsatta områden, genom att hjälpa dem bygga självförtroende, kompetens och långsiktigt engagemang i samhället. Med stöd från samarbetspartners som Arvsfonden har vi kunnat bredda vår verksamhet och inspirera fler unga mellan 16–24 år att ta kontroll över sin framtid.",
-  "imageAlt": "Unga människor som samarbetar på Möjligheternas Plats",
-  "visionTitle": "Vår vision",
-  "visionText": "Vi ser ett samhälle där varje ung person, oavsett bakgrund, får möjlighet att växa, ta ledarskap och bidra. Genom integration, kreativitet och samhällsdrivna initiativ vill vi bygga en starkare och mer inkluderande framtid.",
-  "whatWeDoTitle": "Vad vi gör",
-  "whatWeDoIntro": "Vårt arbete fokuserar på tre centrala områden:",
-  "researchTitle": "Ungas utveckling",
-  "researchText": "Vi utvecklar och driver program som Dream Academy, med fokus på ledarskap, entreprenörskap och personlig utveckling för unga.",
-  "appliedTitle": "Samhällsprojekt",
-  "appliedText": "Vi samarbetar med lokala och internationella aktörer för att skapa meningsfulla aktiviteter – från sommarverksamheter i Sollentuna till europeiska initiativ som Future Narratives.",
-  "educationTitle": "Utbildning & egenmakt",
-  "educationText": "Vi erbjuder workshops, coaching och uppsökande verksamhet som hjälper unga att upptäcka sina styrkor, bygga nätverk och förbereda sig för studier eller arbetsliv.",
-  "quote": "”På Mplats tror vi att möjligheter finns överallt. Vår roll är att hjälpa unga att hitta dem, ta vara på dem och skapa varaktig förändring.”",
-  "closing": "Vårt team arbetar med passion för integration och social utveckling. Utforska våra projekt och var med och forma en framtid där möjligheterna är öppna för alla."
-},
- "event": {
-      "title": "Bygg din framtid",
-      "description": "För unga 16–24: våra event erbjuder utbildning, coaching och CV‑träning som öppnar vägar till arbetsmarknaden."
-    },
-"mediaGallery": {
-  "title": "Media Galleri",
-  "description": "Utforska bilder och videor från våra evenemang, projekt och aktiviteter."
-},
-   "contact": {
-     "title": "Kontakt",
+  "common": {
+    "appName": "Möjligheternas Plats",
+    "appDescription": "En trygg och inkluderande mötesplats där unga kan växa, utvecklas och forma sin framtid.",
+    "readMore": "Läs mer"
+  },
+  "nav": {
+    "home": "Hem",
+    "about": "Om oss",
+    "activities": "Verksamhet",
+    "leadership": "Ledarskapsutbildning",
+    "dreamAcademy": "Dream Academy",
+    "summerCamp": "Summer Camp",
+    "autumnCamp": "Lovaktiviteter",
+    "eveningOpen": "Kvällsöppet",
+    "euCollaborations": "EU-samarbeten",
+    "localProjects": "Lokala projekt",
+    "futureNarrative": "Future Narratives",
+    "news": "Nyheter",
+    "events": "Evenemang",
+    "projects": "Projekt",
+    "partners": "Partners",
+    "media": "Media",
+    "contact": "Kontakt",
+    "engage": "Engagera dig"
+  },
+  "about": {
+    "title": "Om oss",
+    "subtitle": "Vi skapar möjligheter som stärker unga människor och lokalsamhällen.",
+    "intro": "Möjligheternas Plats (Mplats) är en ideell organisation som grundades 2013 av engagerade samhällsmedlemmar i Sollentuna. Sedan starten har vårt uppdrag varit att stärka ungas möjligheter i socioekonomiskt utsatta områden genom att bygga självförtroende, kompetens och långsiktigt samhällsengagemang. Med stöd från samarbetspartners som Allmänna Arvsfonden har vi kunnat bredda vår verksamhet och inspirera fler unga i åldern 16–24 år att ta kontroll över sin framtid.",
+    "imageAlt": "Unga människor som samarbetar på Möjligheternas Plats",
+    "visionTitle": "Vår vision",
+    "visionText": "Vi ser ett samhälle där varje ung person, oavsett bakgrund, får möjlighet att växa, ta ledarskap och bidra. Genom integration, kreativitet och samhällsdrivna initiativ vill vi bygga en starkare och mer inkluderande framtid.",
+    "whatWeDoTitle": "Vad vi gör",
+    "whatWeDoIntro": "Vårt arbete fokuserar på tre centrala områden:",
+    "researchTitle": "Ungas utveckling",
+    "researchText": "Vi utvecklar och driver program som Dream Academy med fokus på ledarskap, entreprenörskap och personlig utveckling.",
+    "appliedTitle": "Samhällsprojekt",
+    "appliedText": "Vi samarbetar med lokala och internationella aktörer för att skapa meningsfulla aktiviteter – från sommarverksamhet i Sollentuna till europeiska initiativ som Future Narratives.",
+    "educationTitle": "Utbildning & egenmakt",
+    "educationText": "Genom workshops, coaching och uppsökande verksamhet hjälper vi unga att upptäcka sina styrkor, bygga nätverk och förbereda sig för studier eller arbetsliv.",
+    "quote": "”På Mplats tror vi att möjligheter finns överallt. Vår roll är att hjälpa unga att hitta dem, ta vara på dem och skapa varaktig förändring.”",
+    "closing": "Vårt team arbetar med passion för integration och social utveckling. Utforska våra projekt och var med och forma en framtid där möjligheterna är öppna för alla."
+  },
+  "event": {
+    "title": "Bygg din framtid",
+    "description": "För unga 16–24 år – våra evenemang erbjuder utbildning, coaching och CV-stöd som öppnar dörrar till arbetsmarknaden."
+  },
+  "mediaGallery": {
+    "title": "Mediagalleri",
+    "description": "Utforska bilder och videor från våra evenemang, projekt och aktiviteter."
+  },
+  "contact": {
+    "title": "Kontakt",
     "subtitle": "Vi finns här för att hjälpa dig."
   },
-    "partners": {
-        "title": "Våra samarbetspartners",
-        "description": "Vi är stolta över att samarbeta med ledande organisationer och institutioner från hela världen."
+  "partners": {
+    "title": "Våra samarbetspartners",
+    "description": "Vi är stolta över att samarbeta med organisationer och institutioner som delar vår vision."
+  },
+  "footer": {
+    "explore": "Utforska",
+    "allRightsReserved": "Alla rättigheter förbehållna",
+    "privacyPolicy": "Integritetspolicy",
+    "termsOfService": "Användarvillkor"
+  },
+  "home": {
+    "hero": {
+      "title": "Skapar <span class='text-primary'>trygga rum</span><br />där unga kan <span class='text-accent'>växa</span>",
+      "subtitle": "Vi bygger gemenskap, framtidstro och möjligheter genom trygghet, stöd och engagemang.",
+      "exploreProjects": "Utforska projekt",
+      "contactUs": "Kontakta oss"
     },
-
-    "footer": {
-        "explore": "Utforska",
-        "allRightsReserved": "Alla rättigheter förbehållna",
-        "privacyPolicy": "Integritetspolicy",
-        "termsOfService": "Användarvillkor"
+    "testimonialcard": {
+      "title": {
+        "part1": "Vad våra ",
+        "part2": "ungdomar ",
+        "part3": "säger"
+      },
+      "description": "Hör vad deltagarna tycker om våra program och aktiviteter."
     },
-    "home": {
-        "hero": {
-            "title": "Skapar <span class='text-primary'>trygga rum</span><br />där unga kan <span class='text-accent'>växa</span>",
-            "subtitle": "Vi skapar gemenskap, bygger framtidstro och hjälper unga att växa med trygghet, stöd och möjligheter.",
-            "exploreProjects": "Utforska Projekt",
-            "contactUs": "Kontakta Oss"
-        },
-        "testimonialcard": {
-            "title": {
-                "part1": "Vad våra ",
-                "part2": "ungdomar ",
-                "part3": "säger"
-            },
-            "description": "Hör vad deltagarna säger om våra program."
-        },
-        "vision": {
-            "title": {
-                "part1": "Vår",
-                "part2": "Vision"
-            },
-            "subtitle": "Vi tror på varje ungs potential och arbetar för att skapa möjligheter där alla kan hitta sin väg i livet.",
-            "card1": {
-                "title": "Trygghet",
-                "description": "Vi skapar trygga miljöer där unga kan vara sig själva och våga växa."
-            },
-            "card2": {
-                "title": "Gemenskap",
-                "description": "Tillsammans är vi starkare. Vi bygger nätverk och varaktiga relationer."
-            },
-            "card3": {
-                "title": "Utveckling",
-                "description": "Vi ger verktyg och stöd för personlig utveckling och framtidstro."
-            }
-        },
-        "latestNews": {
-            "title": "Senaste Nyheter",
-            "subtitle": "Håll dig uppdaterad med våra senaste tillkännagivanden och berättelser.",
-            "viewAll": "Se Alla Nyheter"
-        },
-        "media": {
-            "title": "Mediagalleri",
-            "viewAll": "Se hela galleriet"
-        },
-        "events": {
-            "title": "Kommande Evenemang",
-            "subtitle": "Gå med i våra kommande workshops, seminarier och läger.",
-            "viewAll": "Se Alla Evenemang"
-        },
- "cta": {
+    "vision": {
+      "title": {
+        "part1": "Vår",
+        "part2": "Vision"
+      },
+      "subtitle": "Vi tror på varje ung persons potential och arbetar för att skapa möjligheter där alla kan hitta sin väg i livet.",
+      "card1": {
+        "title": "Trygghet",
+        "description": "Vi skapar miljöer där unga känner sig trygga och vågar vara sig själva."
+      },
+      "card2": {
+        "title": "Gemenskap",
+        "description": "Tillsammans bygger vi starka relationer och långsiktiga nätverk."
+      },
+      "card3": {
+        "title": "Utveckling",
+        "description": "Vi ger verktyg och stöd för personlig utveckling och framtidstro."
+      }
+    },
+    "latestNews": {
+      "title": "Senaste nyheter",
+      "subtitle": "Håll dig uppdaterad med våra senaste nyheter och berättelser.",
+      "viewAll": "Se alla nyheter"
+    },
+    "media": {
+      "title": "Mediagalleri",
+      "viewAll": "Se hela galleriet"
+    },
+    "events": {
+      "title": "Kommande evenemang",
+      "subtitle": "Delta i våra kommande workshops, seminarier och läger.",
+      "viewAll": "Se alla evenemang"
+    },
+    "newshero": {
+      "title": "Nyheter & Uppdateringar",
+      "description": "Här delar vi de senaste nyheterna, händelserna och berättelserna från Möjligheternas Plats."
+    },
+    "cta": {
       "title": "Kontakta oss",
-      "description": "Vi hjälper dig gärna. Fyll i formuläret nedan.",
+      "description": "Har du frågor eller vill engagera dig? Hör gärna av dig.",
       "formTitle": "Skicka ett meddelande",
       "name": "Ditt namn",
       "email": "Din e-postadress",
@@ -125,17 +128,17 @@
       "sending": "Skickar...",
       "success": "Ditt meddelande har skickats!",
       "error": "Något gick fel. Försök igen.",
-      
       "infoTitle": "Kontaktinformation",
       "emailLabel": "E-post",
       "phoneLabel": "Telefon",
       "visitLabel": "Besök oss",
       "instagramLabel": "Instagram"
     }
-    },"localProjects": {
+  },
+  "localProjects": {
     "hero": {
       "title": "<span class='block'>Stärker <span class='text-primary'>lokala gemenskaper</span></span><span class='block'>genom projekt som <span class='text-accent'>skapar förändring</span></span>",
-      "subtitle": "Utforska våra lokala program som stöttar unga, familjer och närområden genom meningsfulla aktiviteter och gemenskapsdrivna initiativ.",
+      "subtitle": "Utforska våra lokala initiativ som stöttar unga, familjer och närområden genom meningsfulla aktiviteter.",
       "exploreProjects": "Utforska lokala projekt",
       "contactUs": "Engagera dig"
     }
@@ -143,15 +146,14 @@
   "euCollaborationsPage": {
     "hero": {
       "title": "<span class='block'>Bygger <span class='text-primary'>europeiska samarbeten</span></span><span class='block'>som ger unga möjlighet att <span class='text-accent'>växa och utvecklas</span></span>",
-      "subtitle": "Vi samarbetar i hela Europa genom Erasmus+, ungdomsutbyten, ledarskapsprogram och internationella projekt som skapar möjligheter för unga.",
-      "exploreProjects": "Utforska EU-program",
+      "subtitle": "Genom Erasmus+ och internationella projekt skapar vi möjligheter för unga att utvecklas över gränser.",
+      "exploreProjects": "Utforska EU-projekt",
       "contactUs": "Samarbeta med oss"
     }
   },
-   "mediaPreview": {
-  "title": "Mediagalleri",
-  "description": "Utforska bilder och videor från våra evenemang, workshops och aktiviteter som fångar andan i vårt arbete.",
-  "viewAll": "Se hela galleriet"
-}
-
+  "mediaPreview": {
+    "title": "Mediagalleri",
+    "description": "Bilder och videor från våra evenemang, workshops och aktiviteter.",
+    "viewAll": "Se hela galleriet"
+  }
 }

@@ -188,45 +188,57 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$context$2f$LanguageCo
 ;
 ;
 ;
-const siteUrl = 'https://www.mplats.se';
+const siteUrl = "https://www.mplats.se";
 const metadata = {
     metadataBase: new URL(siteUrl),
-    title: 'Möjligheternas Plats – Youth Center & Community Hub',
-    description: 'Möjligheternas Plats är en modern fritidsgård och community-plattform där unga kan utvecklas, delta i program, event och internationella projekt.',
+    title: {
+        default: "Möjligheternas Plats – Youth Center & Community Hub",
+        template: "%s – Möjligheternas Plats"
+    },
+    description: "Möjligheternas Plats är en modern fritidsgård och community-plattform där unga kan utvecklas, delta i program, event och internationella projekt.",
+    // 👤 AUTHOR / CREATOR
+    authors: [
+        {
+            name: "Hussein Abdi",
+            url: siteUrl
+        }
+    ],
+    creator: "Hussein Abdi",
+    publisher: "Möjligheternas Plats",
     alternates: {
         canonical: siteUrl,
         languages: {
-            'sv-SE': siteUrl,
-            'en-US': `${siteUrl}/en`
+            "sv-SE": siteUrl,
+            "en-US": `${siteUrl}/en`
         }
     },
     icons: {
-        icon: '/favicon.ico',
-        shortcut: '/favicon.ico',
-        apple: '/apple-touch-icon.png'
+        icon: "/favicon.ico",
+        shortcut: "/favicon.ico",
+        apple: "/apple-touch-icon.png"
     },
     openGraph: {
-        title: 'Möjligheternas Plats – Youth Center & Community Hub',
-        description: 'En trygg plats för unga med aktiviteter, program, EU-projekt och evenemang.',
+        title: "Möjligheternas Plats – Youth Center & Community Hub",
+        description: "En trygg plats för unga med aktiviteter, program, EU-projekt och evenemang.",
         url: siteUrl,
-        siteName: 'Möjligheternas Plats',
-        locale: 'sv_SE',
-        type: 'website',
+        siteName: "Möjligheternas Plats",
+        locale: "sv_SE",
+        type: "website",
         images: [
             {
-                url: '/og-image.jpg',
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: 'Möjligheternas Plats – Community Hub'
+                alt: "Möjligheternas Plats – Community Hub"
             }
         ]
     },
     twitter: {
-        card: 'summary_large_image',
-        title: 'Möjligheternas Plats – Youth Center & Community Hub',
-        description: 'En trygg plats för unga med aktiviteter, program, EU-projekt och evenemang.',
+        card: "summary_large_image",
+        title: "Möjligheternas Plats – Youth Center & Community Hub",
+        description: "En trygg plats för unga med aktiviteter, program, EU-projekt och evenemang.",
         images: [
-            '/og-image.jpg'
+            "/og-image.jpg"
         ]
     },
     robots: {
@@ -247,7 +259,7 @@ function RootLayout({ children }) {
                         href: "https://fonts.googleapis.com"
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 73,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("link", {
@@ -256,7 +268,7 @@ function RootLayout({ children }) {
                         crossOrigin: "anonymous"
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 74,
+                        lineNumber: 88,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("link", {
@@ -264,13 +276,55 @@ function RootLayout({ children }) {
                         rel: "stylesheet"
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 79,
+                        lineNumber: 93,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/layout.tsx",
-                lineNumber: 72,
+                lineNumber: 85,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
+                type: "application/ld+json",
+                dangerouslySetInnerHTML: {
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        "@id": "https://www.mplats.se/#organization",
+                        name: "Möjligheternas Plats",
+                        url: "https://www.mplats.se",
+                        logo: "https://www.mplats.se/logo.png",
+                        description: "Möjligheternas Plats är en modern fritidsgård och community där unga utvecklas genom aktiviteter, utbildning, program, EU-projekt och evenemang.",
+                        foundingLocation: {
+                            "@type": "Place",
+                            address: {
+                                "@type": "PostalAddress",
+                                addressCountry: "SE"
+                            }
+                        },
+                        contactPoint: {
+                            "@type": "ContactPoint",
+                            contactType: "Customer Support",
+                            email: "hallo@mplats.se",
+                            availableLanguage: [
+                                "Swedish",
+                                "English"
+                            ]
+                        },
+                        sameAs: [
+                            "https://www.linkedin.com/feed/"
+                        ],
+                        founder: {
+                            "@type": "Person",
+                            name: "Hussein Abdi",
+                            url: "https://www.mplats.se"
+                        }
+                    })
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/app/layout.tsx",
+                lineNumber: 100,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("body", {
@@ -280,42 +334,42 @@ function RootLayout({ children }) {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$layout$2f$Navbar$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Navbar"], {}, void 0, false, {
                             fileName: "[project]/src/app/layout.tsx",
-                            lineNumber: 90,
-                            columnNumber: 5
+                            lineNumber: 140,
+                            columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                             className: "flex-grow",
                             children: children
                         }, void 0, false, {
                             fileName: "[project]/src/app/layout.tsx",
-                            lineNumber: 91,
-                            columnNumber: 5
+                            lineNumber: 141,
+                            columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$layout$2f$Footer$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Footer"], {}, void 0, false, {
                             fileName: "[project]/src/app/layout.tsx",
-                            lineNumber: 92,
-                            columnNumber: 5
+                            lineNumber: 142,
+                            columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$toaster$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                             fileName: "[project]/src/app/layout.tsx",
-                            lineNumber: 93,
-                            columnNumber: 5
+                            lineNumber: 143,
+                            columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/layout.tsx",
-                    lineNumber: 89,
-                    columnNumber: 3
+                    lineNumber: 139,
+                    columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/layout.tsx",
-                lineNumber: 85,
-                columnNumber: 6
+                lineNumber: 135,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/layout.tsx",
-        lineNumber: 71,
+        lineNumber: 84,
         columnNumber: 5
     }, this);
 }
