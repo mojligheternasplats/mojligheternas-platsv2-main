@@ -1783,6 +1783,10 @@ body {
   padding-top: 2rem;
 }
 
+.pb-24 {
+  padding-bottom: 6rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3565,6 +3569,10 @@ body {
 
   .lg\:pr-4 {
     padding-right: 1rem;
+  }
+
+  .lg\:pr-8 {
+    padding-right: 2rem;
   }
 
   .lg\:text-4xl {

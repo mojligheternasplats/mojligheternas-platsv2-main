@@ -1,111 +1,108 @@
-import { getEvents, getEventBySlug } from "@/lib/api/events";
+import { getEventBySlug } from "@/lib/api/events";
 import { notFound } from "next/navigation";
+import { getMediaUrl } from "@/lib/getMediaUrl";
 import Image from "next/image";
-import { Calendar, MapPin, ArrowLeft } from "lucide-react";
+import { ProjectContent } from "@/components/projects/ProjectContent";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { getMediaUrl } from "@/lib/getMediaUrl";
-import EventRegisterButton from "@/components/events/EventRegisterButton";
+import { ArrowLeft, Calendar, MapPin } from "lucide-react";
 
 export default async function EventDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  // ✅ Await params ONCE
   const { slug } = await params;
 
-  const event = await getEventBySlug(slug);
+  const decodedSlug = decodeURIComponent(slug.replace(/\+/g, " "));
+  const event = await getEventBySlug(decodedSlug);
   if (!event) notFound();
 
+  const fallbackImage = (event as any).imageUrl ?? "/fallback.png";
 
-  // ✅ Always get the LATEST image
-  const images = event.media?.filter(
-    (m) => m.mediaType === "IMAGE"
-  );
+  const latestMedia = event.media?.length
+    ? event.media[event.media.length - 1]
+    : null;
 
-  const image = images?.[images.length - 1] ?? null;
-  const imageUrl = image ? getMediaUrl(image.url) : null;
+  const headerImage = latestMedia?.url
+    ? getMediaUrl(latestMedia.url)
+    : fallbackImage;
 
-  const eventDate = new Date(event.startDate);
+  const eventDate = event.startDate
+    ? new Date(event.startDate).toLocaleDateString("sv-SE", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : null;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="container mx-auto flex items-center justify-between h-14">
+      {/* NAV */}
+      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b">
+        <div className="container mx-auto h-14 flex items-center">
           <Button variant="ghost" size="sm" asChild>
             <Link href="/events" className="flex items-center gap-2">
               <ArrowLeft className="w-4 h-4" />
-              <span className="hidden sm:inline">Tillbaka</span>
+              Tillbaka
             </Link>
           </Button>
-          <span className="text-sm font-semibold hidden sm:inline">
-            Möjligheternas Plats
-          </span>
-          <div className="w-8" />
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-primary/90 px-6 py-24 sm:py-32">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Text */}
-          <div>
-            <h1 className="text-4xl sm:text-5xl font-bold">
+      {/* TWO COLUMN LAYOUT */}
+      <section className="relative isolate px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+          {/* LEFT — TEXT */}
+          <div className="lg:pr-8">
+            <p className="text-base font-semibold text-primary">Evenemang</p>
+
+            <h1 className="mt-2 text-3xl sm:text-4xl xl:text-5xl font-bold leading-tight">
               {event.title}
             </h1>
 
-            <div className="mt-6 flex flex-wrap gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                {eventDate.toLocaleDateString("sv-SE")}
+            {/* DATE & PLACE */}
+            {(eventDate || event.location) && (
+              <div className="mt-6 flex flex-wrap gap-6 text-sm text-muted-foreground">
+                {eventDate && (
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>{eventDate}</span>
+                  </div>
+                )}
+
+                {event.location && (
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    <span>{event.location}</span>
+                  </div>
+                )}
               </div>
-              {event.location && (
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  {event.location}
-                </div>
-              )}
-            </div>
+            )}
 
             {event.description && (
-              <p className="mt-6 text-lg text-muted-foreground">
+              <p className="mt-6 text-xl text-muted-foreground">
                 {event.description}
               </p>
             )}
+
+            <div className="mt-12">
+              <ProjectContent content={event.content || ""} />
+            </div>
           </div>
 
-          {/* Image */}
-          {imageUrl && (
-            <div className="relative h-[420px] rounded-xl overflow-hidden shadow-xl">
-              <Image
-                src={imageUrl}
-                alt={event.title}
-                fill
-                priority
-                className="object-cover"
-              />
-            </div>
-          )}
-        </div>
-
-        {/* Content */}
-        <div className="container max-w-3xl mx-auto mt-16">
-          <article className="prose prose-lg dark:prose-invert max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: event.content ?? "" }} />
-          </article>
-
-          <div className="mt-12">
-  {event.openForRegistration ? (
-    <EventRegisterButton eventId={event.id} />
-  ) : (
-    <p className="text-sm text-muted-foreground">
-      Registreringen för detta evenemang är stängd.
-    </p>
-  )}
-</div>
-
+          {/* RIGHT — STICKY IMAGE */}
+          <div className="lg:sticky lg:top-24">
+            <Image
+              src={headerImage}
+              alt={event.title}
+              width={800}
+              height={600}
+              priority
+              className="rounded-xl shadow-xl ring-1 ring-border"
+            />
+          </div>
         </div>
       </section>
     </div>

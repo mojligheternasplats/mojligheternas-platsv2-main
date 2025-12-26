@@ -1,118 +1,84 @@
 import { getNewsBySlug } from "@/lib/api/news";
 import { notFound } from "next/navigation";
-import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
 import { getMediaUrl } from "@/lib/getMediaUrl";
+import Image from "next/image";
+import { ProjectContent } from "@/components/projects/ProjectContent";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 
 export default async function NewsDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  // ✅ Await params ONCE
   const { slug } = await params;
-
-  const decodedSlug = decodeURIComponent(
-    slug.replace(/\+/g, " ")
-  );
-
+  const decodedSlug = decodeURIComponent(slug.replace(/\+/g, " "));
   const article = await getNewsBySlug(decodedSlug);
   if (!article) notFound();
 
-  // ...
 
 
- 
+  const fallbackImage = (article as any).imageUrl ?? "/fallback.png";
 
-  // ✅ Get latest IMAGE (same pattern as projects / gallery)
-  const images = article.media?.filter(
-    (m) => m.mediaType === "IMAGE"
-  );
+  const latestMedia = article.media?.length
+    ? article.media[article .media.length - 1]
+    : null;
 
-  const image = images?.[images.length - 1] ?? null;
-  const imageUrl = image ? getMediaUrl(image.url) : null;
+  const headerImage = latestMedia?.url
+    ? getMediaUrl(latestMedia.url)
+    : fallbackImage;
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Navigation */}
+    <div className="min-h-screen bg-background text-foreground">
+      {/* NAV */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b">
-        <div className="container mx-auto flex items-center justify-between h-14">
-          <ButtonBack />
-          <span className="hidden sm:block text-sm font-semibold">
-            Möjligheternas Plats
-          </span>
-          <div className="w-8" />
+        <div className="container mx-auto h-14 flex items-center">
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/news" className="flex items-center gap-2">
+              <ArrowLeft className="w-4 h-4" />
+              Tillbaka
+            </Link>
+          </Button>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="py-10 md:py-16 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-        <div className="container max-w-3xl mx-auto space-y-6">
-          {/* Title */}
-          <header className="space-y-4">
-            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground">
+      {/* TWO COLUMN LAYOUT */}
+      <section className="relative isolate px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+          {/* LEFT — TEXT */}
+          <div className="lg:pr-8">
+            <p className="text-base font-semibold text-primary">Nyhet</p>
+
+            <h1 className="mt-2 text-3xl sm:text-4xl xl:text-5xl font-bold leading-tight">
               {article.title}
             </h1>
-          </header>
 
-          {/* Image */}
-          {imageUrl && (
-            <div className="relative h-60 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-md">
-              <Image
-                src={imageUrl}
-                alt={article.title}
-                fill
-                priority
-                className="object-cover transition-transform duration-500 hover:scale-105"
-              />
+            {article.description && (
+              <p className="mt-6 text-xl text-muted-foreground">
+                {article.description}
+              </p>
+            )}
+
+            <div className="mt-12">
+              <ProjectContent content={article.content||""} />
             </div>
-          )}
-        </div>
-      </section>
+          </div>
 
-      {/* Content */}
-      <section className="py-12 md:py-16">
-        <div className="container max-w-3xl mx-auto">
-          <article
-            className="
-              prose prose-base
-              sm:prose-lg
-              md:prose-xl
-              lg:prose-2xl
-              dark:prose-invert
-
-              max-w-none
-              leading-relaxed
-
-              prose-headings:font-headline
-              prose-headings:font-bold
-
-              prose-p:text-foreground
-              prose-strong:text-foreground
-              prose-strong:font-semibold
-
-              prose-img:rounded-xl
-            "
-            dangerouslySetInnerHTML={{
-              __html: article.content ?? "",
-            }}
-          />
+          {/* RIGHT — STICKY IMAGE */}
+          <div className="lg:sticky lg:top-24">
+            <Image
+              src={headerImage}
+              alt={article.title}
+              width={800}
+              height={600}
+              priority
+              className="rounded-xl shadow-xl ring-1 ring-border"
+            />
+          </div>
         </div>
       </section>
     </div>
-  );
-}
-
-/* Back Button */
-function ButtonBack() {
-  return (
-    <Link
-      href="/news"
-      className="inline-flex items-center gap-2 text-accent hover:underline"
-    >
-      <ArrowLeft size={16} />
-      <span className="hidden sm:inline">Tillbaka</span>
-    </Link>
   );
 }
