@@ -100,14 +100,16 @@ const headerImage = project.media?.[0]?.url
           {/* Sticky image column */}
           {headerImage && (
             <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-             <Image
-     src={`${headerImage}?w=800&h=600&f_auto&q_auto`}
+<div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-xl ring-1 ring-border">
+  <Image
+    src={headerImage}
     alt={project.title}
-     width={800}
-                height={600}
-                className="w-full max-w-none rounded-xl bg-card shadow-xl ring-1 ring-border"
+    fill // This makes the image fill the parent div
+    sizes="(max-width: 768px) 100vw, 800px"
     priority
+    className="object-cover" // This ensures the image covers the area without stretching
   />
+</div>
             </div>
           )}
 
