@@ -71,16 +71,20 @@ function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="hover:bg-accent/20">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="hover:bg-transparent hover:text-accent transition-colors"
+        >
           <Globe className="h-5 w-5" />
         </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setLanguage("sv")}>
+        <DropdownMenuItem onClick={() => setLanguage("sv")} className="cursor-pointer">
           Svenska
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setLanguage("en")}>
+        <DropdownMenuItem onClick={() => setLanguage("en")} className="cursor-pointer">
           English
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -175,7 +179,7 @@ export function Navbar() {
               {/* CTA BUTTON + LANGUAGE SWITCHER */}
               <div className="p-5 border-t space-y-3">
                 <Button className="w-full" asChild onClick={() => setIsOpen(false)}>
-                  <Link href="/engagera">Engagera dig</Link>
+                  <Link href="/engage">Engagera dig</Link>
                 </Button>
 
            
@@ -256,7 +260,9 @@ function NavDropdown({ item }: { item: NavItem }) {
         <Button
           variant="ghost"
           className={cn(
-            "px-2 text-sm font-medium hover:text-accent",
+            "px-2 text-sm font-medium transition-colors",
+            // Kill the default background and target the text color
+            "hover:bg-transparent hover:text-accent", 
             highlight ? "text-accent" : "text-foreground/60"
           )}
         >
@@ -268,14 +274,18 @@ function NavDropdown({ item }: { item: NavItem }) {
       <DropdownMenuContent>
         {item.subItems?.map((sub) => (
           <DropdownMenuItem key={sub.name} asChild>
-            <Link href={sub.path}>{sub.name}</Link>
+            <Link 
+              href={sub.path}
+              className="cursor-pointer hover:text-accent transition-colors"
+            >
+              {sub.name}
+            </Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
 }
-
 /* ------------------------------------------------------------
    MOBILE NAV LINK
 -------------------------------------------------------------*/
@@ -287,49 +297,47 @@ function MobileNavLink({
   setOpen: (v: boolean) => void;
 }) {
   const pathname = usePathname();
-  const active =
-    item.subItems?.some((s) => pathname.startsWith(s.path)) ||
-    pathname === item.path;
+  
+  // Checks if the current path matches the item or any of its children
+  const isActive = 
+    pathname === item.path || 
+    item.subItems?.some((sub) => pathname === sub.path);
 
-  // ❌ Skip Engage
-  if (item.name === "Engage") return null;
+  // Hardcoded exclusion (Consider moving this to the parent filter)
+  if (item.name === "Engagera dig") return null;
 
   if (item.subItems?.length) {
     return (
-      <AccordionItem value={item.name}>
+      <AccordionItem value={item.name} className="border-none">
         <AccordionTrigger
           className={cn(
-            "py-3 font-semibold hover:no-underline",
-            active && "text-accent"
+            "py-3 font-semibold hover:no-underline transition-colors",
+            isActive ? "text-accent" : "text-foreground/90"
           )}
         >
           {item.name}
         </AccordionTrigger>
 
         <AccordionContent>
-          <div className="pl-4 space-y-2 py-2">
+          <div className="pl-4 space-y-1 py-1">
             {item.subItems.map((sub) => (
               <Link
-                key={sub.name}
+                key={sub.path} // More unique than name
                 href={sub.path}
-               onClick={() => setOpen(false)}
-className={cn(
-  "block p-2 rounded transition-colors hover:bg-muted hover:text-blue-600",
-  pathname === sub.path ? "text-accent font-semibold" : "text-foreground/70"
-)}
-
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "block p-2 rounded-md transition-colors",
+                  pathname === sub.path 
+                    ? "bg-muted text-accent font-semibold" 
+                    : "text-foreground/70 hover:bg-muted hover:text-foreground"
+                )}
               >
                 {sub.name}
-
               </Link>
             ))}
-
           </div>
-
         </AccordionContent>
-
       </AccordionItem>
-
     );
   }
 
@@ -338,12 +346,13 @@ className={cn(
       href={item.path}
       onClick={() => setOpen(false)}
       className={cn(
-        "block py-3 px-3 rounded-md text-base hover:bg-muted",
-        active ? "text-accent font-semibold" : "text-foreground/80"
+        "block py-3 px-3 rounded-md text-base transition-colors",
+        isActive 
+          ? "bg-muted text-accent font-semibold" 
+          : "text-foreground/80 hover:bg-muted hover:text-foreground"
       )}
     >
       {item.name}
-
     </Link>
   );
 }
