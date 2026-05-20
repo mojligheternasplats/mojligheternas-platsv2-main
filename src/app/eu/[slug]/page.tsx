@@ -39,7 +39,7 @@ const headerImage = latestMedia?.url
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
         <div className="container mx-auto flex items-center justify-between h-14">
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/projects" className="flex items-center gap-2">
+            <Link href="/eu" className="flex items-center gap-2">
               <ArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">Tillbaka</span>
             </Link>
