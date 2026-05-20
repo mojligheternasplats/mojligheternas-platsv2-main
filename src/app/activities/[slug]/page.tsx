@@ -22,12 +22,13 @@ export default async function ProjectDetailPage({
   if (!project) notFound();
 
   // Primary hero image
- const fallbackImage = (project as any).imageUrl ?? "/fallback.png";
-const headerImage = project.media?.[0]?.url
-  ? getMediaUrl(project.media[0].url)
-  : fallbackImage;
-    
-
+  // Primary hero image
+  const fallbackImage = (project as any).imageUrl ?? "/fallback.png";
+// ✅ Safely extract the LAST media item in the array to use as the header image
+  const headerImage = project.media?.length
+    ? getMediaUrl(project.media[project.media.length - 1].url)
+    : fallbackImage;
+ 
   return (
     <div className="min-h-screen bg-background text-foreground">
         {/* Navigation */}

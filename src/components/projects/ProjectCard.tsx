@@ -14,15 +14,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const href = resolveProjectHref(project);
 
   // ✅ Use first media image as project cover (fallback if none exists)
-  const coverImage = project.media?.find(m => m.mediaType === "IMAGE")?.url ?? null;
-      console.log("coverImage",coverImage)
+  // ✅ Keeps 'coverImage' name, but finds the LAST image instead of the first
+  const coverImage = project.media?.length 
+    ? [...project.media].reverse().find(m => m.mediaType === "IMAGE")?.url ?? null
+    : null;
+    
+
+
   // ✅ Show category badge: LOCAL or EU
   const categoryColor = project.category === "EU" ? "default" : "secondary";
-  const finalImage =
-  coverImage ||
-  project.media?.[0]?.url ||
-  "/images/default-header.png";
 
+  // ✅ Keeps 'finalImage' name, but uses the LAST media item as the fallback instead of [0]
+  const finalImage =
+    coverImage ||
+    (project.media?.length ? project.media[project.media.length - 1]?.url : null) ||
+    "/images/default-header.png";
+  console.log("finalImage", finalImage);
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
       <Link href={href} className="block">

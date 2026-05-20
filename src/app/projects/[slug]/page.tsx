@@ -7,7 +7,7 @@ import { ProjectContent } from "@/components/projects/ProjectContent";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
+
 
 export default async function ProjectDetailPage({
   params,
@@ -31,7 +31,7 @@ export default async function ProjectDetailPage({
     ? getMediaUrl(latestMedia.url)
     : fallbackImage;
 
-
+  console.log("headerImage", headerImage);
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
