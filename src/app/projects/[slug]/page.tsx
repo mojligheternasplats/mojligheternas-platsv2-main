@@ -78,16 +78,17 @@ export default async function ProjectDetailPage({
               <div className="lg:max-w-lg">
                 <p className="text-base font-semibold text-primary">Projekt</p>
                 <h1 className=" mt-2 
-      text-2xl
-      sm:text-3xl
-      md:text-4xl
-      lg:text-4xl
-      xl:text-5xl
-      font-bold
-      tracking-tight
-      text-foreground
-      leading-tight
-    ">
+   mt-2
+    text-2xl
+    sm:text-3xl
+    md:text-3xl
+    lg:text-4xl
+    xl:text-4xl
+    font-bold
+    tracking-tight
+    text-foreground
+    leading-tight
+  ">
                   {project.title}
                 </h1>
                 {project.description && (
