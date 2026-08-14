@@ -31,7 +31,7 @@ export default async function ProjectDetailPage({
     ? getMediaUrl(latestMedia.url)
     : fallbackImage;
 
-  console.log("headerImage", headerImage);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}

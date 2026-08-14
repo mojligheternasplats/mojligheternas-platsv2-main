@@ -95,7 +95,7 @@ export interface Project {
   language: string;
   category: "LOCAL" | "EU";          // ✅ Include category
   imageHint: string;                 // ✅ New field
-
+  program?: string | null;
   creator?: User | null;             // Optional populated user
   media: Media[];                    // ✅ List of attached media files
 }

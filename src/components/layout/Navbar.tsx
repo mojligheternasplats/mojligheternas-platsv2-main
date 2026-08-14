@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 import { useTranslation } from "@/hooks/useTranslation";
 import { useEUProjects } from "@/hooks/useEUProjects";
-
+import { groupProjectsByProgram } from "@/lib/api/projects";
 import {
   Sheet,
   SheetTrigger,
@@ -25,7 +25,10 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent
 } from "@/components/ui/dropdown-menu";
 
 import {
@@ -53,7 +56,7 @@ function Logo() {
         className="h-9 w-12 object-cover"
       />
       <span className="font-bold text-sm sm:text-base md:text-lg lg:text-xl text-primary font-headline">
-      Möjligheternas Plats
+        Möjligheternas Plats
       </span>
     </Link>
   );
@@ -71,9 +74,9 @@ function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button 
-          variant="ghost" 
-          size="icon" 
+        <Button
+          variant="ghost"
+          size="icon"
           className="hover:bg-transparent hover:text-accent transition-colors"
         >
           <Globe className="h-5 w-5" />
@@ -106,24 +109,48 @@ export function Navbar() {
   const { items: euProjects } = useEUProjects();
 
   // Inject EU Items dynamically
-  const items = useMemo<NavItem[]>(() => {
-    return baseItems.map((item) => {
-      if (item.path === "/eu") {
-        return {
-          ...item,
-          subItems:
-            euProjects.length > 0
-              ? euProjects.map((p) => ({
-                name: p.title || p.slug,
-                path: `/eu/${encodeURIComponent(p.slug)}`
-              }))
-              : undefined
-        };
-      }
-      return item;
-    });
-  }, [euProjects, baseItems]);
 
+
+
+  // Group EU projects by their existing `program` field
+  const groupedEUProjects = useMemo(
+    () => groupProjectsByProgram(euProjects),
+    [euProjects]
+  );
+ 
+const EU_PROGRAM_DISPLAY_NAMES: Record<string, string> = {
+  "erasmus-plus": "Erasmus+",
+  "european-solidarity-corps": "European Solidarity Corps",
+  "future-narratives": "Future Narratives",
+};
+  // Inject EU → Program → Project hierarchy dynamically
+ const items = useMemo<NavItem[]>(() => {
+  return baseItems.map((item) => {
+    if (item.path === "/eu") {
+      const programItems: NavItem[] = Object.entries(
+        groupedEUProjects
+      ).map(([programName, projects]) => ({
+        name: programName,
+       displayName:
+  EU_PROGRAM_DISPLAY_NAMES[
+     programName.trim().toLowerCase().replace(/_/g, "-")
+  ] || programName,
+        path: "#",
+        subItems: projects.map((project) => ({
+          name: project.title || project.slug,
+          path: `/projects/${encodeURIComponent(project.slug)}`,
+        })),
+      }));
+
+      return {
+        ...item,
+        subItems: programItems.length > 0 ? programItems : undefined,
+      };
+    }
+
+    return item;
+  });
+}, [baseItems, groupedEUProjects]);
   // Filter main desktop items
   const mainNavItems = items.filter(
     (i) =>
@@ -182,7 +209,7 @@ export function Navbar() {
                   <Link href="/engage">Engagera dig</Link>
                 </Button>
 
-           
+
               </div>
 
             </SheetContent>
@@ -196,25 +223,25 @@ export function Navbar() {
         </div>
 
         {/* DESKTOP NAV */}
-      <nav className="hidden md:flex flex-1 justify-end items-center space-x-6 pr-2">
-  <NavLink href="/about">{t("nav.about")}</NavLink>
+        <nav className="hidden md:flex flex-1 justify-end items-center space-x-6 pr-2">
+          <NavLink href="/about">{t("nav.about")}</NavLink>
 
-  {mainNavItems.map((item) =>
-    item.subItems ? (
-      <NavDropdown key={item.name} item={item} />
-    ) : (
-      <NavLink key={item.name} href={item.path}>
-        {item.name}
-      </NavLink>
-    )
-  )}
+          {mainNavItems.map((item) =>
+            item.subItems ? (
+              <NavDropdown key={item.name} item={item} />
+            ) : (
+              <NavLink key={item.name} href={item.path}>
+                {item.name}
+              </NavLink>
+            )
+          )}
 
-  {/* Events */}
-  <NavLink href="/events">{t("nav.events")}</NavLink>
+          {/* Events */}
+          <NavLink href="/events">{t("nav.events")}</NavLink>
 
-  {/* Lang Switch */}
-  <LanguageSwitcher />
-</nav>
+          {/* Lang Switch */}
+          <LanguageSwitcher />
+        </nav>
 
       </div>
     </header>
@@ -236,11 +263,10 @@ export function NavLink({ href, children }: NavLinkProps) {
   return (
     <Link
       href={href}
-      className={`relative px-2 py-1 transition-colors ${
-        isActive
+      className={`relative px-2 py-1 transition-colors ${isActive
           ? "text-primary font-semibold after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-primary"
           : "text-foreground hover:text-primary"
-      }`}
+        }`}
     >
       {children}
     </Link>
@@ -250,9 +276,126 @@ export function NavLink({ href, children }: NavLinkProps) {
 /* ------------------------------------------------------------
    DESKTOP DROPDOWN
 -------------------------------------------------------------*/
+// function NavDropdown({ item }: { item: NavItem }) {
+//   const pathname = usePathname();
+//   const highlight = item.subItems?.some((s) => pathname.startsWith(s.path));
+
+//   return (
+//     <DropdownMenu>
+//       <DropdownMenuTrigger asChild>
+//         <Button
+//           variant="ghost"
+//           className={cn(
+//             "px-2 text-sm font-medium transition-colors",
+//             // Kill the default background and target the text color
+//             "hover:bg-transparent hover:text-accent", 
+//             highlight ? "text-accent" : "text-foreground/60"
+//           )}
+//         >
+//           {item.name}
+//           <ChevronDown className="w-4 h-4 ml-1" />
+//         </Button>
+//       </DropdownMenuTrigger>
+
+//       <DropdownMenuContent>
+//         {item.subItems?.map((sub) => (
+//           <DropdownMenuItem key={sub.name} asChild>
+//             <Link 
+//               href={sub.path}
+//               className="cursor-pointer hover:text-accent transition-colors"
+//             >
+//               {sub.name}
+//             </Link>
+//           </DropdownMenuItem>
+//         ))}
+//       </DropdownMenuContent>
+//     </DropdownMenu>
+//   );
+// }
+/* ------------------------------------------------------------
+   MOBILE NAV LINK
+-------------------------------------------------------------*/
+// function MobileNavLink({
+//   item,
+//   setOpen
+// }: {
+//   item: NavItem;
+//   setOpen: (v: boolean) => void;
+// }) {
+//   const pathname = usePathname();
+
+//   // Checks if the current path matches the item or any of its children
+//   const isActive = 
+//     pathname === item.path || 
+//     item.subItems?.some((sub) => pathname === sub.path);
+
+//   // Hardcoded exclusion (Consider moving this to the parent filter)
+//   if (item.name === "Engagera dig") return null;
+
+//   if (item.subItems?.length) {
+//     return (
+//       <AccordionItem value={item.name} className="border-none">
+//         <AccordionTrigger
+//           className={cn(
+//             "py-3 font-semibold hover:no-underline transition-colors",
+//             isActive ? "text-accent" : "text-foreground/90"
+//           )}
+//         >
+//           {item.name}
+//         </AccordionTrigger>
+
+//         <AccordionContent>
+//           <div className="pl-4 space-y-1 py-1">
+//             {item.subItems.map((sub) => (
+//               <Link
+//                 key={sub.path} // More unique than name
+//                 href={sub.path}
+//                 onClick={() => setOpen(false)}
+//                 className={cn(
+//                   "block p-2 rounded-md transition-colors",
+//                   pathname === sub.path 
+//                     ? "bg-muted text-accent font-semibold" 
+//                     : "text-foreground/70 hover:bg-muted hover:text-foreground"
+//                 )}
+//               >
+//                 {sub.name}
+//               </Link>
+//             ))}
+//           </div>
+//         </AccordionContent>
+//       </AccordionItem>
+//     );
+//   }
+
+//   return (
+//     <Link
+//       href={item.path}
+//       onClick={() => setOpen(false)}
+//       className={cn(
+//         "block py-3 px-3 rounded-md text-base transition-colors",
+//         isActive 
+//           ? "bg-muted text-accent font-semibold" 
+//           : "text-foreground/80 hover:bg-muted hover:text-foreground"
+//       )}
+//     >
+//       {item.name}
+//     </Link>
+//   );
+// }
+
+/* ------------------------------------------------------------
+   DESKTOP DROPDOWN
+-------------------------------------------------------------*/
 function NavDropdown({ item }: { item: NavItem }) {
   const pathname = usePathname();
-  const highlight = item.subItems?.some((s) => pathname.startsWith(s.path));
+
+  const highlight =
+    pathname === item.path ||
+    item.subItems?.some(
+      (sub) =>
+        pathname === sub.path ||
+        sub.subItems?.some((project) => pathname === project.path)
+    );
 
   return (
     <DropdownMenu>
@@ -261,8 +404,7 @@ function NavDropdown({ item }: { item: NavItem }) {
           variant="ghost"
           className={cn(
             "px-2 text-sm font-medium transition-colors",
-            // Kill the default background and target the text color
-            "hover:bg-transparent hover:text-accent", 
+            "hover:bg-transparent hover:text-accent",
             highlight ? "text-accent" : "text-foreground/60"
           )}
         >
@@ -272,87 +414,145 @@ function NavDropdown({ item }: { item: NavItem }) {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent>
-        {item.subItems?.map((sub) => (
-          <DropdownMenuItem key={sub.name} asChild>
-            <Link 
-              href={sub.path}
-              className="cursor-pointer hover:text-accent transition-colors"
-            >
-              {sub.name}
-            </Link>
-          </DropdownMenuItem>
-        ))}
+        {item.subItems?.map((sub) => {
+          // Program with projects → nested submenu
+          if (sub.subItems?.length) {
+            return (
+              <DropdownMenuSub key={sub.name}>
+                <DropdownMenuSubTrigger className="cursor-pointer">
+                   {sub.displayName || sub.name}
+                </DropdownMenuSubTrigger>
+
+                <DropdownMenuSubContent>
+                  {sub.subItems.map((project) => (
+                    <DropdownMenuItem key={project.path} asChild>
+                      <Link
+                        href={project.path}
+                        className={cn(
+                          "cursor-pointer transition-colors",
+                          pathname === project.path
+                            ? "text-accent"
+                            : "hover:text-accent"
+                        )}
+                      >
+                        {project.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuSubContent>
+              </DropdownMenuSub>
+            );
+          }
+
+          // Normal one-level navigation item
+          return (
+            <DropdownMenuItem key={sub.path} asChild>
+              <Link
+                href={sub.path}
+                className="cursor-pointer hover:text-accent transition-colors"
+              >
+                {sub.name}
+              </Link>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );
 }
+
 /* ------------------------------------------------------------
    MOBILE NAV LINK
 -------------------------------------------------------------*/
 function MobileNavLink({
   item,
-  setOpen
+  setOpen,
 }: {
   item: NavItem;
   setOpen: (v: boolean) => void;
 }) {
   const pathname = usePathname();
-  
-  // Checks if the current path matches the item or any of its children
-  const isActive = 
-    pathname === item.path || 
-    item.subItems?.some((sub) => pathname === sub.path);
 
-  // Hardcoded exclusion (Consider moving this to the parent filter)
   if (item.name === "Engagera dig") return null;
 
-  if (item.subItems?.length) {
-    return (
-      <AccordionItem value={item.name} className="border-none">
-        <AccordionTrigger
-          className={cn(
-            "py-3 font-semibold hover:no-underline transition-colors",
-            isActive ? "text-accent" : "text-foreground/90"
-          )}
-        >
-          {item.name}
-        </AccordionTrigger>
+  const hasChildren = Boolean(item.subItems?.length);
 
-        <AccordionContent>
-          <div className="pl-4 space-y-1 py-1">
-            {item.subItems.map((sub) => (
+  const isActive =
+    pathname === item.path ||
+    item.subItems?.some(
+      (sub) =>
+        pathname === sub.path ||
+        sub.subItems?.some((child) => pathname === child.path)
+    );
+
+  if (!hasChildren) {
+    return (
+      <Link
+        href={item.path}
+        onClick={() => setOpen(false)}
+        className={cn(
+          "block py-3 px-3 rounded-md text-base transition-colors",
+          isActive
+            ? "bg-muted text-accent font-semibold"
+            : "text-foreground/80 hover:bg-muted hover:text-foreground"
+        )}
+      >
+        {item.name}
+      </Link>
+    );
+  }
+
+  return (
+    <AccordionItem
+      value={`${item.path}-${item.name}`}
+      className="border-none"
+    >
+      <AccordionTrigger
+        className={cn(
+          "py-3 font-semibold hover:no-underline transition-colors",
+          isActive ? "text-accent" : "text-foreground/90"
+        )}
+      >
+         {item.displayName || item.name}
+      </AccordionTrigger>
+
+      <AccordionContent>
+        <div className="pl-4 space-y-1 py-1">
+          {item.subItems!.map((sub) => {
+            if (sub.subItems?.length) {
+              return (
+                <Accordion
+                  key={`program-${sub.name}`}
+                  type="single"
+                  collapsible
+                  className="w-full"
+                >
+                  <MobileNavLink
+                    item={sub}
+                    setOpen={setOpen}
+                  />
+                </Accordion>
+              );
+            }
+
+            return (
               <Link
-                key={sub.path} // More unique than name
+                key={sub.path}
                 href={sub.path}
                 onClick={() => setOpen(false)}
                 className={cn(
                   "block p-2 rounded-md transition-colors",
-                  pathname === sub.path 
-                    ? "bg-muted text-accent font-semibold" 
+                  pathname === sub.path
+                    ? "bg-muted text-accent font-semibold"
                     : "text-foreground/70 hover:bg-muted hover:text-foreground"
                 )}
               >
                 {sub.name}
               </Link>
-            ))}
-          </div>
-        </AccordionContent>
-      </AccordionItem>
-    );
-  }
-
-  return (
-    <Link
-      href={item.path}
-      onClick={() => setOpen(false)}
-      className={cn(
-        "block py-3 px-3 rounded-md text-base transition-colors",
-        isActive 
-          ? "bg-muted text-accent font-semibold" 
-          : "text-foreground/80 hover:bg-muted hover:text-foreground"
-      )}
-    >
-      {item.name}
-    </Link>
+            );
+          })}
+        </div>
+      </AccordionContent>
+    </AccordionItem>
   );
 }

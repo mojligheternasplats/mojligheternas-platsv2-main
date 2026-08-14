@@ -67,6 +67,21 @@ export async function getEUProjects(): Promise<Project[]> {
     return [];
   }
 }
+export function groupProjectsByProgram(
+  projects: Project[]
+): Record<string, Project[]> {
+  return projects.reduce<Record<string, Project[]>>((groups, project) => {
+    const program = project.program?.trim() || "Övriga EU-projekt";
+
+    if (!groups[program]) {
+      groups[program] = [];
+    }
+
+    groups[program].push(project);
+
+    return groups;
+  }, {});
+}
 
 // For navbar dropdown (server)
 export async function getLatestEUProjects(): Promise<Project[]> {

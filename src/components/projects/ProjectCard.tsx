@@ -29,7 +29,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     coverImage ||
     (project.media?.length ? project.media[project.media.length - 1]?.url : null) ||
     "/images/default-header.png";
-  console.log("finalImage", finalImage);
+
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
       <Link href={href} className="block">
