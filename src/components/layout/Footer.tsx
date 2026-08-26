@@ -66,10 +66,10 @@ export function Footer() {
                   </p>
 
                   <a
-                    href="mailto:abdulkadir@mojligheternasplats.com"
+                    href="mailto:info@mojligheternasplats.com"
                     className="text-sm text-muted-foreground hover:text-accent transition-colors"
                   >
-                    abdulkadir@mojligheternasplats.com
+                   info@mojligheternasplats.com
                   </a>
                 </div>
               </div>

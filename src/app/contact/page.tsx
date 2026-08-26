@@ -130,7 +130,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold">{t('home.cta.emailLabel')}</h3>
-                <p className="text-muted-foreground">abdulkadir@mojligheternasplats.com</p>
+                <p className="text-muted-foreground">info@mojligheternasplats.com</p>
               </div>
             </div>
 
